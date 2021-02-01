@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+@import url('https://fonts.googleapis.com/css2?family=Boogaloo&display=swap');
 
 body {
     margin: 0 0 0 0;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Boogaloo', sans-serif;
     text-decoration: none;
 }
   
@@ -10,5 +10,5 @@ body {
     box-sizing: border-box;
     font-size: 1rem;
     animation: fade-in 1s;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Boogaloo', sans-serif;
 }
