@@ -77,12 +77,9 @@ body {
     cursor: pointer;
     margin-top: 2rem;
     width: fit-content;
-    display: flex;
-    flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    perspective: 130px;
-    justify-content: center;
+    position: absolute;
+    bottom: 10%;
+    left: 35%;
 }
 
 .co {
@@ -100,6 +97,24 @@ body {
 }
 
 @media screen and (max-width: 450px) {
+    .playButton{
+        text-align: center;
+        border: white 4px solid;
+        border-radius: 25px;
+        padding: 5px 30px 5px 30px;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        margin-top: 2rem;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        perspective: 130px;
+        justify-content: center;
+        position: unset;
+    }
     .title {
         margin: auto;
     }
@@ -110,3 +125,36 @@ body {
         font-size: 2rem;
     }
 }
+
+
+@media screen and (max-height: 450px) {
+    .playButton{
+        text-align: center;
+        border: white 4px solid;
+        border-radius: 25px;
+        padding: 5px 30px 5px 30px;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        margin-top: 2rem;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        perspective: 130px;
+        justify-content: center;
+        position: unset;
+    }
+    .title {
+        margin: auto;
+    }
+    .title > h1 {
+        font-size: 4rem;
+    }    
+    .title > h3 {
+        font-size: 2rem;
+    }
+}
+
+

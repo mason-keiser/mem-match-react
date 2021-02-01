@@ -4,31 +4,22 @@ import Home from './landing'
 
 const App = (props) => {
 
-    const [view, setView] = 
-        useState({view: {
-            name: 'init',
-            params: {}
-        }})
+    const [view, setView] = useState({ name: 'init', params: {}})
     
     const newView = (names, params) => {
-        setView({
-            view: {
-                name: names,
-                params: params
-            }
-        })
+        setView({ name: names, params: params })
     }
 
-    let tert = (view.view.name === 'init')
-        ?  <div>Workin</div>
-        : (view.view.name === 'old') 
-          ? <div>old Work</div>
+    let tert = (view.name === 'init')
+        ?  <div onClick= {() => newView('old', {})}>Workin</div>
+        : (view.name === 'old') 
+          ? <div onClick={() => newView('init', {})}>old Work</div>
           : null 
 
     return (
         <div className='appCont'>
-            <Home/>
-            
+            <Home view={view} setView={setView}/>
+            {tert}
         </div>
     )
 }
