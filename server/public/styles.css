@@ -96,7 +96,7 @@ body {
    
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
     .playButton{
         text-align: center;
         border: white 4px solid;
@@ -127,7 +127,7 @@ body {
 }
 
 
-@media screen and (max-height: 450px) {
+@media screen and (max-height: 500px) {
     .playButton{
         text-align: center;
         border: white 4px solid;
