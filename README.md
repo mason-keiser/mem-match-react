@@ -1,5 +1,5 @@
 # mem-match-react
-A repository to hold a memory match game designed with React Hooks
+A repository to hold a memory match game developed using React Hooks
 
 # Figma 
 
