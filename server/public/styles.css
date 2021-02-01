@@ -59,12 +59,12 @@ body {
 }
 
 .loginButton:hover{
-    
+    background-color: black;
+    opacity: 50%;
     transition: ease-in 300ms;
     border-radius: 25px;
     backdrop-filter: blur(5px);
-    color: #7390F5;
-    border: 4px solid #7390F5;
+    
 }
 
 .playButton{
@@ -93,9 +93,10 @@ body {
     backdrop-filter: blur(55px);
     transition: ease-in 200ms;
     perspective: 100px;
+    background-color: black;
+    opacity: 50%;
     backdrop-filter: blur(5px);
-    color: #7390F5;
-    border: 4px solid #7390F5;
+   
 }
 
 @media screen and (max-width: 450px) {
