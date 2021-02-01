@@ -8,6 +8,9 @@ const Home = (props) => {
             <div className="title">
                 <h1>Under The Sea</h1>
                 <h3>Memory Match Game</h3>
+                <div className='co'>
+                    <div className = 'playButton'>Play Now</div>
+                </div>
             </div>
         </div>
     )

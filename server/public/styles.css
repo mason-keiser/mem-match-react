@@ -49,8 +49,8 @@ body {
     position: absolute;
     top: 20px;
     right: 20px;
-    border: white 3px solid;
-    border-radius: 30px;
+    border: white 4px solid;
+    border-radius: 25px;
     padding: 5px 30px 5px 30px;
     color: white;
     font-size: 2rem;
@@ -59,10 +59,43 @@ body {
 }
 
 .loginButton:hover{
-    font-size: 2.5rem;
+    
     transition: ease-in 300ms;
-    border-radius: 35px;
-    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    backdrop-filter: blur(5px);
+    color: #7390F5;
+    border: 4px solid #7390F5;
+}
+
+.playButton{
+    text-align: center;
+    border: white 4px solid;
+    border-radius: 25px;
+    padding: 5px 30px 5px 30px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-top: 2rem;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    perspective: 130px;
+    justify-content: center;
+}
+
+.co {
+    margin-bottom: 1rem;
+}
+
+.playButton:hover{
+    backdrop-filter: blur(55px);
+    transition: ease-in 200ms;
+    perspective: 100px;
+    backdrop-filter: blur(5px);
+    color: #7390F5;
+    border: 4px solid #7390F5;
 }
 
 @media screen and (max-width: 450px) {
