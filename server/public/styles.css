@@ -212,7 +212,7 @@ Navbar Styling
     display: flex;
     background: rgba(0,0,0, 0.95);
     flex-direction: column;
-    justify-content: space-around;
+    
     padding-top: 3rem;
     align-items: center;
     height: 100vh;
@@ -226,8 +226,11 @@ Navbar Styling
 }
 
 .hamCont > h4 {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
     justify-content: flex-end;
-    cursor: pointer;
+    margin-bottom: 4rem;
 }
 
 .hamCont > h3:hover {
@@ -253,9 +256,17 @@ Navbar Styling
     opacity: 50%;
 }
 
+.nav {
+    height: 15vh;    
+}
+
 @media screen and (max-width: 450px) {
+
+    .nav {
+        height: 13vh;    
+    }
     .brand{
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
     .ham{
         font-size: 2rem;
@@ -277,5 +288,36 @@ Navbar Styling
     }
     .hamCont.open{
         left:0px;
+    }
+    .hamCont > h4 {
+        margin-bottom: 10rem;
+    }
+    
+}
+
+@media screen and (max-width: 376px) {
+    .ham {
+        font-size: 1rem;
+    }
+    .navButton {
+        padding: 5px 10px 5px 10px;
+    }
+    .brand{
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-height: 350px) {
+    .ham {
+        font-size: 1rem;
+    }
+    .navButton {
+        padding: 5px 10px 5px 10px;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .nav {
+        height: 30vh;
     }
 }
