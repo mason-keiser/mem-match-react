@@ -8,9 +8,9 @@ const Login = (props) => {
             <img src="/images/uw.jpg" alt="homeScreen" id='homeL'/>
             <Navb props = {props}/>
             <div className='loginCont'>
-                <h1>Login</h1>
                 <div>
                     <form className='loginForm'>
+                    <h1>Login</h1>
                         <div className='form-group'>
                             <label htmlFor="name">Name: </label>
                             <input type="text" autoComplete='name' placeholder='Name' name='name' className="" id='name'/>
