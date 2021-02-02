@@ -417,7 +417,6 @@ label{
     overflow: hidden;
 }
 
-
 @media screen and (max-height: 350px) {
     #homeL {
         height: 100vh;
@@ -480,5 +479,26 @@ label{
 
     .loginForm {
         width: 95vw;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .loginCont > h1 {
+        font-size: 3rem;
+    }
+
+    .loginCont {
+        height: 120vh;
+    }
+
+    .loginForm {
+        width: 90vw;
+    }
+
+    #homeL {
+        height: 120vh;
+    }
+    .con {
+        height: 120vh;
     }
 }
