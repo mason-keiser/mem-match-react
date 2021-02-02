@@ -21,7 +21,7 @@ const Login = (props) => {
                         </div>
                         <div id="required" className="required"></div>
                         <div className='loginbutton'>
-                            <button type='submit' className='btn mt-2 white' style={{color: 'white'}}>Login</button>
+                            <button type='submit' className='btn mt-2 white' style={{color: 'white', fontSize: '2rem'}}>Login</button>
                         </div>
                         <h4 className='needacc'>Click here to sign up</h4>
                     </form>
