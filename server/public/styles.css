@@ -461,6 +461,11 @@ label{
     .con {
         height: 200vh;
     }
+
+
+    .loginbutton > button {
+        width: 20vw;    
+    }
 }
 
 @media screen and (max-width: 420px) {
@@ -468,9 +473,8 @@ label{
         font-size: 3rem;
     }
     
-
     .loginbutton > button {
-        width: 20vw;    
+        width: 30vw;    
     }
 
     .form-group {
