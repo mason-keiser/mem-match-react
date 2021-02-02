@@ -296,6 +296,7 @@ Navbar Styling
 }
 
 @media screen and (max-width: 376px) {
+
     .ham {
         font-size: 1rem;
     }
@@ -307,7 +308,10 @@ Navbar Styling
     }
 }
 
-@media screen and (max-height: 350px) {
+@media screen and (max-height: 420px) {
+    #side{
+        height: 200vh;
+    }
     .ham {
         font-size: 1rem;
     }
