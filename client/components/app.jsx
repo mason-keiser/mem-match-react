@@ -1,6 +1,7 @@
 import { useState } from "react"
 import React from 'react'
 import Home from './landing'
+import Login from "./login"
 
 const App = (props) => {
 
@@ -11,14 +12,13 @@ const App = (props) => {
     }
 
     let tert = (view.name === 'init')
-        ?  <div onClick= {() => newView('old', {})}>Workin</div>
-        : (view.name === 'old') 
-          ? <div onClick={() => newView('init', {})}>old Work</div>
-          : null 
+        ?  <Home view={view} setView={setView}/>
+        : (view.name === 'login') 
+          ? <Login view={view} setView={setView}/>
+          : null
 
     return (
         <div className='appCont'>
-            <Home view={view} setView={setView}/>
             {tert}
         </div>
     )

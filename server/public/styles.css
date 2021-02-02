@@ -13,7 +13,10 @@ body {
     font-family: 'Boogaloo', sans-serif;
 }
 
-/* Landing Page Styling */
+/* 
+    Landing Page Styling
+
+*/
 
 #home {
     position: absolute;
@@ -64,7 +67,7 @@ body {
     transition: ease-in 300ms;
     border-radius: 25px;
     backdrop-filter: blur(5px);
-    
+    color: rgba(255,255,255, 1);
 }
 
 .playButton{
@@ -93,7 +96,7 @@ body {
     background-color: black;
     opacity: 50%;
     backdrop-filter: blur(5px);
-   
+    color: rgba(255,255,255, 1);
 }
 
 @media screen and (max-width: 500px) {
@@ -157,4 +160,29 @@ body {
     }
 }
 
+/* 
 
+Navbar Styling
+
+*/
+
+.nav {
+    background: rgba(0,0,0, 0.7);
+}
+
+.ham{
+    font-size: 3rem;
+    color: white;
+}
+
+.navButton{
+    text-align: center;
+    border: white 4px solid;
+    border-radius: 25px;
+    padding: 5px 30px 5px 30px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    
+    width: fit-content;
+}
