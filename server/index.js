@@ -52,6 +52,12 @@ app.get('/api/login/:name/:password', (req, res, next) => {
   AND password = $2;
   `;
   const params = [name, password];
+
+  for (let i = 0; i < params.length; i ++) {
+    if (!params[i]) {
+      return res.status(400).json({ error: 'all login input forms must be filled' });
+    }
+  }
   db.query(sql, params)
     .then(result => {
       if (!result.rows[0]) {
