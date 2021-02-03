@@ -5,8 +5,8 @@ import Login from "./login"
 
 const App = (props) => {
 
-    const [view, setView] = useState({ name: 'init', params: {}})
-    const [user, setUser] = useState({name: '', user_id: null, icon: null})
+    const [view, setView] = useState({ name: 'init', params: {} })
+    const [user, setUser] = useState({})
 
     const login = (loginInfo) => {
         if (!loginInfo) {
@@ -14,10 +14,10 @@ const App = (props) => {
         }
         const name = loginInfo.name;
         const password = loginInfo.password;
-            fetch('/api/login/' + name + '/' + password, {
-                method: 'GET',
-                headers: { 'Content-Type': 'application/json'}
-            })
+        fetch('/api/login/' + name + '/' + password, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json'}
+        })
             .then(response => {
                 if (response.status === 400 || response.status === 404) {
                     return null
@@ -25,17 +25,17 @@ const App = (props) => {
                     return response.json();
                 }
             })
-            .then(result => {
-                if (!result) {
-                    return null
-                } else {
-                    setUser({
-                        name: result[0].name,
-                        user_id: result[0].user_id,
-                        icon: result[0].icon
-                    })
-                }
-            })
+                .then(result => {
+                    if (!result) {
+                        return null
+                    } else {
+                        setUser({
+                            name: result[0].name,
+                            user_id: result[0].user_id,
+                            icon: result[0].icon
+                        })
+                    }
+                })
     }
 
     let tert = (view.name === 'init')
