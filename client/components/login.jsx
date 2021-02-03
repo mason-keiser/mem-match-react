@@ -9,8 +9,8 @@ const Login = (props) => {
     const handleSubmit = (callback) => {
         event.preventDefault()
         const obj = {
-            name: name.name,
-            password: password.password
+            name: name,
+            password: password
         }
         if (!obj) {
             null
@@ -21,10 +21,10 @@ const Login = (props) => {
 
     const handleChange = (event) => {
         if (event.target.id === 'name') {
-            setName({ name: event.target.value })
+            setName(event.target.value)
         }
         if (event.target.id === 'password') {
-            setPassword({ password: event.target.value })
+            setPassword(event.target.value)
         }
     } 
 
