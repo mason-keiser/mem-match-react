@@ -98,8 +98,8 @@ ALTER TABLE ONLY public.users ALTER COLUMN user_id SET DEFAULT nextval('public.u
 --
 
 COPY public.users (user_id, name, password, icon) FROM stdin;
-1	Mason	mk	/images/userIcons/fishIcon
-2	Mel	1234	/images/userIcons/turtleIcon.png
+2	Mel	1234	/images/userIcons/fishIcon.png
+1	Mason	mk	/images/userIcons/fishIcon.png
 \.
 
 
