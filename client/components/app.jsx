@@ -43,7 +43,7 @@ const App = (props) => {
     let tert = (view.name === 'init')
         ?  <Home view={view} setView={setView}/>
         : (view.name === 'login') 
-          ? <Login login={login} view={view} setView={setView}/>
+          ? <Login user={user} login={login} view={view} setView={setView}/>
           : (view.name === 'game')
             ? <Game view={view} setView={setView} user={user}/>
             : null

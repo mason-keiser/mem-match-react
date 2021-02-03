@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Navbar } from 'reactstrap';
 
 const Navb = (props) => {
+
+    useEffect(() => {
+        navSwitch()
+    }, [])
 
     const handleMenu = () => {
         const ham = document.getElementById('side');
@@ -13,7 +17,17 @@ const Navb = (props) => {
             ham.classList.add('open')
             icon.style.color ='black'
         }
-   }
+    }
+
+    console.log(props)
+    
+    const navSwitch = () => {
+        if (props.props.view.name === 'login') {
+            console.log('login')
+        } else if (props.props.view.name == 'game') {
+            console.log('game')
+        }
+    }
 
     return (
         <div>
@@ -22,7 +36,7 @@ const Navb = (props) => {
                 </div>
                 <h1 className='brand'>Under The Sea</h1>
                 <div className='d-flex flex-row justify-content-center align-items-center'>
-                    <div onClick={() => props.props.setView({name: 'game', params: {}})} className = 'navButton'>Play Now</div>
+                : <div onClick={() => props.props.setView({name: 'game', params: {}})} className = 'navButton'>Play Now</div>
                 </div>
             </Navbar>
             <div id='side'  className='hamCont'>

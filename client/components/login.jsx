@@ -31,7 +31,7 @@ const Login = (props) => {
     return (
         <div className='con'>
             <img src="/images/uw.jpg" alt="homeScreen" id='homeL'/>
-            <Navb props={props}/>
+            <Navb user={props.user} props={props}/>
             <div className='loginCont'>
                 <div>
                     <form onSubmit={() => handleSubmit(props.login)} className='loginForm'>
