@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import React from 'react'
 import Home from './landing'
 import Login from "./login"
+import Game from './game'
 
 const App = (props) => {
 
@@ -34,6 +35,7 @@ const App = (props) => {
                             user_id: result[0].user_id,
                             icon: result[0].icon
                         })
+                        setView({name: 'game', params: {}})
                     }
                 })
     }
@@ -42,7 +44,9 @@ const App = (props) => {
         ?  <Home view={view} setView={setView}/>
         : (view.name === 'login') 
           ? <Login login={login} view={view} setView={setView}/>
-          : null
+          : (view.name === 'game')
+            ? <Game view={view} setView={setView} user={user}/>
+            : null
 
     return (
         <div className='appCont'>

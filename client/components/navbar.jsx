@@ -22,7 +22,7 @@ const Navb = (props) => {
                 </div>
                 <h1 className='brand'>Under The Sea</h1>
                 <div className='d-flex flex-row justify-content-center align-items-center'>
-                    <div className = 'navButton'>Play Now</div>
+                    <div onClick={() => props.props.setView({name: 'game', params: {}})} className = 'navButton'>Play Now</div>
                 </div>
             </Navbar>
             <div id='side'  className='hamCont'>
