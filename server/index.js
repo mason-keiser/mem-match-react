@@ -19,7 +19,15 @@ app.get('/api/health-check', (req, res, next) => {
     .catch(err => next(err));
 });
 
-//  SIGN UP API POST REQUEST THAT ADDS USER INFO TO DB
+/*
+
+==================================================
+
+SIGN UP API POST REQUEST THAT ADDS USER INFO TO DB
+
+==================================================
+
+*/
 
 app.post('/api/signUp/', (req, res, next) => {
   const sql = `
@@ -41,7 +49,15 @@ app.post('/api/signUp/', (req, res, next) => {
     });
 });
 
-//  SEARCH DATABASE FOR EXISTING EMAIL AND PASSWORD API GET REQUEST
+/*  
+
+================================================================
+
+SEARCH DATABASE FOR EXISTING EMAIL AND PASSWORD API GET REQUEST 
+  
+================================================================
+
+*/
 
 app.get('/api/login/:name/:password', (req, res, next) => {
   const name = req.params.name;
