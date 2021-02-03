@@ -4,7 +4,9 @@ import { Navbar } from 'reactstrap';
 const Navb = (props) => {
 
     useEffect(() => {
-        navSwitch()
+        setInterval(() => {
+            navSwitch()
+        },1)
     }, [])
 
     const handleMenu = () => {
@@ -19,13 +21,22 @@ const Navb = (props) => {
         }
     }
 
-    console.log(props)
-    
     const navSwitch = () => {
         if (props.props.view.name === 'login') {
-            console.log('login')
-        } else if (props.props.view.name == 'game') {
-            console.log('game')
+            return (
+                <div onClick={() => props.props.setView({name: 'game', params: {}})} className = 'navButton'>Play Now</div>
+            )
+        } if (props.props.view.name == 'game' && (Object.keys(props.props.user).length === 0)) {
+            return (
+                <div onClick={() => props.props.setView({name: 'login', params: {}})} className = 'navButton'>Login</div>
+            )
+        } if (!(Object.keys(props.props.user).length === 0)) {
+            return (
+                <div className='d-flex justify-content-between flex-row align-items-center'>
+                    <img src={props.props.user.icon} alt="" id='navIcon'/>
+                    <h3 id='userName'>{props.props.user.name}</h3>
+                </div>
+            )
         }
     }
 
@@ -36,7 +47,7 @@ const Navb = (props) => {
                 </div>
                 <h1 className='brand'>Under The Sea</h1>
                 <div className='d-flex flex-row justify-content-center align-items-center'>
-                : <div onClick={() => props.props.setView({name: 'game', params: {}})} className = 'navButton'>Play Now</div>
+                    {navSwitch()}
                 </div>
             </Navbar>
             <div id='side'  className='hamCont'>
