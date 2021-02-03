@@ -1,7 +1,32 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect, useReducer} from 'react';
 import Navb from './navbar';
 
 const Login = (props) => {
+
+    const [name, setName] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleSubmit = (callback) => {
+        event.preventDefault()
+        const obj = {
+            name: name.name,
+            password: password.password
+        }
+        if (!obj) {
+            null
+        } else {
+        callback(obj)
+        }
+    }
+
+    const handleChange = (event) => {
+        if (event.target.id === 'name') {
+            setName({ name: event.target.value })
+        }
+        if (event.target.id === 'password') {
+            setPassword({ password: event.target.value })
+        }
+    } 
 
     return (
         <div className='con'>
@@ -9,15 +34,15 @@ const Login = (props) => {
             <Navb props = {props}/>
             <div className='loginCont'>
                 <div>
-                    <form className='loginForm'>
+                    <form onSubmit={() => handleSubmit(props.login)} className='loginForm'>
                     <h1>Login</h1>
                         <div className='form-group'>
                             <label htmlFor="name">Name: </label>
-                            <input type="text" autoComplete='name' placeholder='Name' name='name' className="" id='name'/>
+                            <input type="text" autoComplete='name' placeholder='Name' name='name' className="" id='name' onChange={handleChange}/>
                         </div>
                         <div className='form-group'>
                             <label htmlFor="password">Password: </label>
-                            <input type="password" placeholder='Password' autoComplete='password' name='password' className="" id='password'/>
+                            <input type="password" placeholder='Password' autoComplete='password' name='password' className="" id='password' onChange={handleChange}/>
                         </div>
                         <div id="required" className="required"></div>
                         <div className='loginbutton'>
