@@ -278,6 +278,7 @@ Navbar Styling
 
 #userName {
     color: white;
+    padding-left: 5px;
 }
 
 
@@ -349,6 +350,23 @@ Navbar Styling
         height: 30vh;
     }
 }
+
+@media screen and (max-width: 325px) {
+    #navIcon {
+        height: 2.5rem;
+    }
+
+    #userName {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    #userName {
+        padding-left: 1rem;
+    }
+}
+
 
 /* 
 
