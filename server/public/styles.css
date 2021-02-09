@@ -600,8 +600,9 @@ Game Styling
     background: rgba(255,255,255, 0.5);
 }
 
-#fold2 {
+.fold2 {
     padding: 0;
+    cursor: pointer;
 }
 
 .icon2 {
@@ -627,6 +628,16 @@ Game Styling
     color: white;
     padding: 1rem;
     border-radius: 50%;
+}
+
+.backCard{
+    display: none;
+}
+
+.fold2 > #skillC:hover{
+    cursor: pointer;
+    background-color: black;
+   
 }
 
 @media screen and (min-width: 800px) {

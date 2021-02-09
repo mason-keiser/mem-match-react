@@ -113,6 +113,22 @@ const Game = (props) => {
         ]
     })
 
+    const handleClick = (event) => {
+        const back = document.querySelectorAll('.backCard');
+        const front = document.querySelectorAll('.frontCard');
+        
+        back.forEach(b => {
+          if (b.id === event.target.id) {
+            b.style.display = 'unset'
+          }
+        })
+        front.forEach(f => {
+            if (f.id === event.target.id) {
+              f.style.display = 'none'
+            }
+          })
+    }
+
     return (
         <div id='gameBack'>
             <div style={{zIndex: '999', width: '100vw'}}>
@@ -153,10 +169,11 @@ const Game = (props) => {
                             cards.deck.map((card, index) => {
                                 return (
                                     <Col key={index}
-                                        className="m-1 " id='fold2'>
+                                        className="m-1 fold2" onClick={(e) => handleClick(e)} id={card.name}>
                                         {card.name
                                             ? <Game_Card card={card}/>
-                                            : null}
+                                            : null
+                                        }
                                     </Col>
                                 );
                             })
