@@ -6,6 +6,10 @@ import {
     Col
   } from 'reactstrap';
 import Game_Card from './game_card';
+import {
+    Link,
+    animateScroll as scroll
+  } from 'react-scroll';
 
 const Game = (props) => {
     const [cards, setCards] = useState({
@@ -182,6 +186,9 @@ const Game = (props) => {
                     </Col>
                 </Row>
             </Container>
+            <div>
+            <div id='btn' className='toTopBtn' onClick={() => scroll.scrollToTop()}>▲</div>
+            </div>
         </div>
     )
 }
