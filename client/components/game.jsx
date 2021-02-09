@@ -112,6 +112,15 @@ const Game = (props) => {
             }
         ]
     })
+
+    const handleClick = () => {
+        setTimeout(() => {
+            const back = document.getElementById('back');
+            const front = document.getElementById('front');
+                console.log(back, front)
+        },1000)
+    }
+
     return (
         <div id='gameBack'>
             <div style={{zIndex: '999', width: '100vw'}}>
@@ -152,7 +161,7 @@ const Game = (props) => {
                             cards.deck.map((card, index) => {
                                 return (
                                     <Col key={index}
-                                        className="m-1" id='fold2'>
+                                        className="m-1 " id='fold2'>
                                         {card.name
                                             ? <Game_Card card={card}/>
                                             : null}

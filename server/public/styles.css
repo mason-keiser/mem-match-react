@@ -281,6 +281,10 @@ Navbar Styling
     padding-left: 5px;
 }
 
+#side {
+    height: 100%;
+}
+
 
 @media screen and (max-width: 450px) {
     #navIcon {
@@ -571,7 +575,7 @@ Game Styling
 
 #gameBack {
     background: url('/images/uw.jpg') center center;
-    height: 120vh;
+    height: 100%;
     object-fit: cover;
 
 }
@@ -589,9 +593,9 @@ Game Styling
     background: rgba(0,0,0, 0.7);
 }
 
-#gameCard{
-    height: 15vh;
-    width: 15vw;
+.gameCard{
+    height: 17vh;
+    width: 17vw;
     border-radius: 25px;
     background: rgba(255,255,255, 0.5);
 }
@@ -600,7 +604,7 @@ Game Styling
     padding: 0;
 }
 
-#icon2 {
+.icon2 {
     background: white;
     border: 7px solid black;
     border-radius: 50%;
@@ -609,7 +613,7 @@ Game Styling
     perspective: 65px;
 }
 
-#cardImg {
+.cardImg {
     height: 5vh;
     width: 5vw;
 }
@@ -623,6 +627,14 @@ Game Styling
         max-width: 100vw;
     }
 
+
+}
+
+@media screen and (max-width: 330px) {
+    .cardImg {
+        height: 5vh;
+        width: 20vw;
+    }
 
 }
 
@@ -642,13 +654,13 @@ Game Styling
         margin-bottom: 1rem;
     }
 
-    #gameCard{
+    .gameCard{
         height: 20vh;
         width: 45vw;
       
     }
 
-    #cardImg {
+    .cardImg {
         height: 5vh;
         width: 20vw;
     }
@@ -663,14 +675,22 @@ Game Styling
         height: 100%;
     }
 
-    #gameCard{
+    .gameCard{
         height: 40vh;
         width: 30vw;
       
     }
 
-    #cardImg {
-        height: 20vh;
-        width: 20vw;
+    .cardImg {
+        height: 10vh;
+        width: 10vw;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 350px) {
+    .gameCard{
+        height: 48vh;
+        width: 35vw;
+      
     }
 }
