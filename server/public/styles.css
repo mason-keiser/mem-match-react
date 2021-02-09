@@ -618,6 +618,17 @@ Game Styling
     width: 5vw;
 }
 
+.c {
+    background: rgba(255,255,255, 0.5);
+}
+
+.icon3 {
+    border: 7px solid white;
+    color: white;
+    padding: 1rem;
+    border-radius: 50%;
+}
+
 @media screen and (min-width: 800px) {
     #gameInfo {
         max-width: 90vw;
