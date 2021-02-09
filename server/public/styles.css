@@ -569,6 +569,13 @@ Game Styling
 
 */
 
+#gameBack {
+    background: url('/images/uw.jpg') center center;
+    height: 120vh;
+    object-fit: cover;
+
+}
+
 #infoI {
     color: white;
     text-align: center;
@@ -582,24 +589,88 @@ Game Styling
     background: rgba(0,0,0, 0.7);
 }
 
+#gameCard{
+    height: 15vh;
+    width: 15vw;
+    border-radius: 25px;
+    background: rgba(255,255,255, 0.5);
+}
+
+#fold2 {
+    padding: 0;
+}
+
+#icon2 {
+    background: white;
+    border: 7px solid black;
+    border-radius: 50%;
+    padding: 1rem;
+    box-shadow: 0px 5px rgba(0,0,0, 0.4);
+    perspective: 65px;
+}
+
+#cardImg {
+    height: 5vh;
+    width: 5vw;
+}
+
 @media screen and (min-width: 800px) {
     #gameInfo {
         max-width: 90vw;
     }
+
+    #gameCards{
+        max-width: 100vw;
+    }
+
+
 }
 
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 430px) {
+    #gameBack {
+        background: url('/images/uw.jpg') center center;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
+    }
+
     #infoI {
         width: 70vw;
         margin: auto;
         margin-top: 1rem;
         margin-bottom: 1rem;
     }
+
+    #gameCard{
+        height: 20vh;
+        width: 45vw;
+      
+    }
+
+    #cardImg {
+        height: 5vh;
+        width: 20vw;
+    }
 }
 
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (max-width: 850px) {
     #gameInfo {
         max-width: 100vw;
+    }
+
+    #gameBack {
+        height: 100%;
+    }
+
+    #gameCard{
+        height: 40vh;
+        width: 30vw;
+      
+    }
+
+    #cardImg {
+        height: 20vh;
+        width: 20vw;
     }
 }
