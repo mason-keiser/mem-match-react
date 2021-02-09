@@ -17,7 +17,7 @@ const Game = (props) => {
             },
             {
                 id: 1,
-                name: 'clamCard',
+                name: 'clamCard 2',
                 image: '/images/cardIcons/clam.png'
             },
             {
@@ -27,7 +27,7 @@ const Game = (props) => {
             },
             {
                 id: 2,
-                name: 'crabCard',
+                name: 'crabCard 2',
                 image: '/images/cardIcons/crab.png'
             },
             {
@@ -37,7 +37,7 @@ const Game = (props) => {
             },
             {
                 id: 3,
-                name: 'dolphinCard',
+                name: 'dolphinCard 2',
                 image: '/images/cardIcons/dolphin.png'
             },
             {
@@ -47,7 +47,7 @@ const Game = (props) => {
             },
             {
                 id: 4,
-                name: 'jellyfishCard',
+                name: 'jellyfishCard 2',
                 image: '/images/cardIcons/jellyfish.png'
             },
             {
@@ -57,7 +57,7 @@ const Game = (props) => {
             },
             {
                 id: 5,
-                name: 'seahorseCard',
+                name: 'seahorseCard 2',
                 image: '/images/cardIcons/seahorse.png'
             },
             {
@@ -67,7 +67,7 @@ const Game = (props) => {
             },
             {
                 id: 6,
-                name: 'sealCard',
+                name: 'sealCard 2',
                 image: '/images/cardIcons/seal.png'
             },
             {
@@ -77,7 +77,7 @@ const Game = (props) => {
             },
             {
                 id: 7,
-                name: 'sharkCard',
+                name: 'sharkCard 2',
                 image: '/images/cardIcons/shark.png'
             },
             {
@@ -87,7 +87,7 @@ const Game = (props) => {
             },
             {
                 id: 8,
-                name: 'starfishCard',
+                name: 'starfishCard 2',
                 image: '/images/cardIcons/starfish.png'
             },
             {
@@ -97,7 +97,7 @@ const Game = (props) => {
             },
             {
                 id: 9,
-                name: 'turtleCard',
+                name: 'turtleCard 2',
                 image: '/images/cardIcons/turtle.png'
             },
             {
@@ -107,19 +107,11 @@ const Game = (props) => {
             },
             {
                 id: 10,
-                name: 'whaleCard',
+                name: 'whaleCard 2',
                 image: '/images/cardIcons/whale.png'
             }
         ]
     })
-
-    const handleClick = () => {
-        setTimeout(() => {
-            const back = document.getElementById('back');
-            const front = document.getElementById('front');
-                console.log(back, front)
-        },1000)
-    }
 
     return (
         <div id='gameBack'>

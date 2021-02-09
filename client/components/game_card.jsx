@@ -10,13 +10,14 @@ import {
 
 const Game_Card = (props) => { 
 
-
-
-    
     const handleClick = (event) => {
-        const back = document.getElementById('back');
-        const front = document.getElementById('front');
-            console.log(event.target.id)
+        const back = document.querySelectorAll('.backCard');
+        const front = document.querySelectorAll('.frontCard');
+        back.forEach(b => {
+          if (b.id === event.target.id) {
+            console.log(b)
+          }
+        })
     }
 
 
@@ -26,10 +27,10 @@ const Game_Card = (props) => {
       <Card onClick={(e) => handleClick(e)} data-tilt className='gameCard js-tilt skills-card border-0 slide-in-10 p-0' id={props.card.name}>
         <CardBody className='m-auto' style={{flex: 'none'}} id={props.card.name}>
         <div>
-            <div id='front' className='frontCard'>
+            <div id={props.card.name} className='frontCard'>
                 
             </div>
-            <div id='back' className='backCard flex-column justify-content-center'>
+            <div id={props.card.name} className='backCard flex-column justify-content-center'>
                 <div className="icon2 decoration-none border-div-small d-flex" id={props.card.name}>
                     <img src={props.card.image}
                         className="cardImg border-rounded proj-img"
