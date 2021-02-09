@@ -122,15 +122,15 @@ const Game = (props) => {
         const front = document.querySelectorAll('.frontCard');
         
         back.forEach(b => {
-          if (b.id === event.target.id) {
-            b.style.display = 'unset'
-          }
+            front.forEach(f => {
+                if (b.id === event.target.id) {
+                    b.style.display = 'unset'
+                  }
+                  if (f.id === event.target.id) {
+                    f.style.display = 'none'
+                  }
+            })
         })
-        front.forEach(f => {
-            if (f.id === event.target.id) {
-              f.style.display = 'none'
-            }
-          })
     }
 
     return (
