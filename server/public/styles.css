@@ -577,7 +577,7 @@ Game Styling
     background: url('/images/uw.jpg') center center;
     height: 100%;
     object-fit: cover;
-
+    background-repeat: no-repeat;
 }
 
 #infoI {
@@ -619,10 +619,6 @@ Game Styling
     width: 5vw;
 }
 
-.c {
-    background: rgba(255,255,255, 0.5);
-}
-
 .icon3 {
     border: 7px solid white;
     color: white;
@@ -637,7 +633,7 @@ Game Styling
 .fold2 > #skillC:hover{
     cursor: pointer;
     background-color: black;
-   
+   border-radius: 25px;
 }
 
 @media screen and (min-width: 800px) {
@@ -678,13 +674,13 @@ Game Styling
 
     .gameCard{
         height: 20vh;
-        width: 45vw;
+        width: 35vw;
       
     }
 
     .cardImg {
-        height: 5vh;
-        width: 20vw;
+        height: 4vh;
+        width: 10vw;
     }
 }
 

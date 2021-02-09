@@ -14,8 +14,8 @@ const Game_Card = (props) => {
     <Col 
       className="mr-5 ml-5 mobile-card m-auto skillC p-0" id='skillC' style={{width: 'fit-content'}}>
         <div>
-            <div id={props.card.name} className='frontCard'>
-              <Card data-tilt className='gameCard js-tilt skills-card border-0 slide-in-10 p-0 c' style={{background: 'rgba(0,0,0, 0.7)'}} id={props.card.name}>
+            <div id={props.card.name} className='gameCard frontCard'>
+              <Card data-tilt className='gameCard js-tilt skills-card border-0 slide-in-10 p-0 c' style={{background: 'rgba(0,0,0, 0.86)',  borderRadius: '25px'}} id={props.card.name}>
                 <CardBody className='m-auto' style={{flex: 'none'}} id={props.card.name}>
                 <div className="icon3 decoration-none border-div-small d-flex" id={props.card.name}>
                     <h2 src={props.card.image}
@@ -26,8 +26,8 @@ const Game_Card = (props) => {
               </Card>
               
             </div>
-            <div id={props.card.name} className='backCard flex-column justify-content-center'>
-              <Card data-tilt className='gameCard js-tilt skills-card border-0 slide-in-10 p-0 c' style={{background: 'rgba(255,255,255, 0.5)'}} id={props.card.name}>
+            <div id={props.card.name} className=' gameCard backCard flex-column justify-content-center'>
+              <Card data-tilt className='gameCard js-tilt skills-card border-0 slide-in-10 p-0 c' style={{background: 'rgba(255,255,255, 0.5)', borderRadius: '25px'}} id={props.card.name}>
                 <CardBody className='m-auto' style={{flex: 'none'}} id={props.card.name}>
                 <div className="icon2 decoration-none border-div-small d-flex" id={props.card.name}>
                     <img src={props.card.image}
