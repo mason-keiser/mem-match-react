@@ -143,7 +143,7 @@ const Game = (props) => {
 
         if (!firstCardClicked) {
             firstCardClicked = event.target
-            console.log(firstCardClicked.parentElement)
+           
             setFirstCardClicked(event.target)
             flipCards()
         } else {
@@ -154,9 +154,7 @@ const Game = (props) => {
                 console.log('we have a match')
             } else {
                 setTimeout(() => {
-                    console.log(firstCardClicked.parentElement.parentElement)
-                    firstCardClicked.parentElement.style.display = 'none'
-                    secondCardClicked.parentElement.style.display = 'none'
+                    console.log(firstCardClicked.parentElement, secondCardClicked.parentElement)
                     setFirstCardClicked(0)
                     setSecondCardClicked(0)
                   },1000);
@@ -184,13 +182,13 @@ const Game = (props) => {
                             <Col className="mb-2" id='fold'>
                                 <div id='infoI'>
                                     <h2>Accuracy: </h2>
-                                    <h3>58.97%</h3>
+                                    <h3 id='accuracyInfo'>58.97%</h3>
                                 </div>
                             </Col>
                             <Col className="mb-2" id='fold'>
                                 <div id='infoI'>
                                     <h2>Games Played: </h2>
-                                    <h3>69</h3>
+                                    <h3 id='totalGames'>69</h3>
                                 </div>
                             </Col>
                         </Row>
@@ -205,9 +203,9 @@ const Game = (props) => {
                             cards.deck.map((card, index) => {
                                 return (
                                     <Col key={index}
-                                        className="m-1 fold2" onClick={(e) => handleClick(e)} id={card.name}>
+                                        className="m-1 fold2"  id={card.name}>
                                         {card.name
-                                            ? <Game_Card card={card}/>
+                                            ? <Game_Card handleClick={handleClick} card={card}/>
                                             : null
                                         }
                                     </Col>
