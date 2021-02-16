@@ -147,9 +147,12 @@ const Game = (props) => {
             flipCards()
             if (firstCardClicked.title === secondCardClicked.title) {
                 console.log('we have a match')
+                firstCardClicked = null
+                secondCardClicked = null
             } else {
                 setTimeout(() => {
                     console.log(firstCardClicked.parentElement, secondCardClicked.parentElement)
+                    console.log('no match')
                     setFirstCardClicked(0)
                     setSecondCardClicked(0)
                     firstCardClicked = null
