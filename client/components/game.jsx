@@ -22,98 +22,98 @@ const Game = (props) => {
                 image: '/images/cardIcons/clam.png'
             },
             {
-                id: 1,
-                name: 'clamCard 2',
+                id: 2,
+                name: 'clamCard',
                 image: '/images/cardIcons/clam.png'
             },
             {
-                id: 2,
+                id: 3,
                 name: 'crabCard',
                 image: '/images/cardIcons/crab.png'
             },
             {
-                id: 2,
-                name: 'crabCard 2',
+                id: 4,
+                name: 'crabCard',
                 image: '/images/cardIcons/crab.png'
             },
             {
-                id: 3,
+                id: 5,
                 name: 'dolphinCard',
                 image: '/images/cardIcons/dolphin.png'
             },
             {
-                id: 3,
-                name: 'dolphinCard 2',
+                id: 6,
+                name: 'dolphinCard',
                 image: '/images/cardIcons/dolphin.png'
             },
             {
-                id: 4,
+                id: 7,
                 name: 'jellyfishCard',
                 image: '/images/cardIcons/jellyfish.png'
             },
             {
-                id: 4,
-                name: 'jellyfishCard 2',
+                id: 8,
+                name: 'jellyfishCard',
                 image: '/images/cardIcons/jellyfish.png'
             },
             {
-                id: 5,
+                id: 9,
                 name: 'seahorseCard',
                 image: '/images/cardIcons/seahorse.png'
             },
             {
-                id: 5,
-                name: 'seahorseCard 2',
+                id: 10,
+                name: 'seahorseCard',
                 image: '/images/cardIcons/seahorse.png'
             },
             {
-                id: 6,
+                id: 11,
                 name: 'sealCard',
                 image: '/images/cardIcons/seal.png'
             },
             {
-                id: 6,
-                name: 'sealCard 2',
+                id: 12,
+                name: 'sealCard',
                 image: '/images/cardIcons/seal.png'
             },
             {
-                id: 7,
+                id: 13,
                 name: 'sharkCard',
                 image: '/images/cardIcons/shark.png'
             },
             {
-                id: 7,
-                name: 'sharkCard 2',
+                id: 14,
+                name: 'sharkCard',
                 image: '/images/cardIcons/shark.png'
             },
             {
-                id: 8,
+                id: 15,
                 name: 'starfishCard',
                 image: '/images/cardIcons/starfish.png'
             },
             {
-                id: 8,
-                name: 'starfishCard 2',
+                id: 16,
+                name: 'starfishCard',
                 image: '/images/cardIcons/starfish.png'
             },
             {
-                id: 9,
+                id: 17,
                 name: 'turtleCard',
                 image: '/images/cardIcons/turtle.png'
             },
             {
-                id: 9,
-                name: 'turtleCard 2',
+                id: 18,
+                name: 'turtleCard',
                 image: '/images/cardIcons/turtle.png'
             },
             {
-                id: 10,
+                id: 19,
                 name: 'whaleCard',
                 image: '/images/cardIcons/whale.png'
             },
             {
-                id: 10,
-                name: 'whaleCard 2',
+                id: 20,
+                name: 'whaleCard',
                 image: '/images/cardIcons/whale.png'
             }
         ]
@@ -127,36 +127,33 @@ const Game = (props) => {
         const flipCards = () => {
             back.forEach(b => {
                 if (b.id === event.target.id) {
-                    if (b.style.display = 'none') {
-                        b.style.display = 'unset'
-                    }
+                    b.style.display = 'unset'
                 }
             })
             front.forEach(f => {
                 if (f.id === event.target.id) {
-                    if (f.style.display = 'unset') {
-                        f.style.display = 'none'
-                    }
+                    f.style.display = 'none'
                 }
             })
         }
 
         if (!firstCardClicked) {
             firstCardClicked = event.target
-           
             setFirstCardClicked(event.target)
             flipCards()
         } else {
             secondCardClicked = event.target
             setSecondCardClicked(event.target)
             flipCards()
-            if (firstCardClicked.id === secondCardClicked.id) {
+            if (firstCardClicked.title === secondCardClicked.title) {
                 console.log('we have a match')
             } else {
                 setTimeout(() => {
                     console.log(firstCardClicked.parentElement, secondCardClicked.parentElement)
                     setFirstCardClicked(0)
                     setSecondCardClicked(0)
+                    firstCardClicked = null
+                    secondCardClicked = null
                   },1000);
             }
         }
