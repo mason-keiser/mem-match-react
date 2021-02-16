@@ -8,6 +8,8 @@ import {
 import Game_Card from './game_card';
 
 const Game = (props) => {
+    var [firstCardClicked, setFirstCardClicked] = useState(0);
+    var [secondCardClicked, setSecondCardClicked] = useState(0);
     const [cards, setCards] = useState({
         deck: [
             {
@@ -116,17 +118,46 @@ const Game = (props) => {
     const handleClick = (event) => {
         const back = document.querySelectorAll('.backCard');
         const front = document.querySelectorAll('.frontCard');
+        const matchesInfo = document.getElementById('matchesInfo')
         
-        back.forEach(b => {
-          if (b.id === event.target.id) {
-            b.style.display = 'unset'
-          }
-        })
-        front.forEach(f => {
-            if (f.id === event.target.id) {
-              f.style.display = 'none'
+        const flipCards = () => {
+            back.forEach(b => {
+                if (b.id === event.target.id) {
+                    if (b.style.display = 'none') {
+                        b.style.display = 'unset'
+                    }
+                }
+            })
+            front.forEach(f => {
+                if (f.id === event.target.id) {
+                    if (f.style.display = 'unset') {
+                        f.style.display = 'none'
+                    }
+                }
+            })
+        }
+
+        if (!firstCardClicked) {
+            firstCardClicked = event.target
+            console.log(firstCardClicked.parentElement)
+            setFirstCardClicked(event.target)
+            flipCards()
+        } else {
+            secondCardClicked = event.target
+            setSecondCardClicked(event.target)
+            flipCards()
+            if (firstCardClicked.id === secondCardClicked.id) {
+                console.log('we have a match')
+            } else {
+                setTimeout(() => {
+                    console.log(firstCardClicked.parentElement.parentElement)
+                    firstCardClicked.parentElement.style.display = 'none'
+                    secondCardClicked.parentElement.style.display = 'none'
+                    setFirstCardClicked(0)
+                    setSecondCardClicked(0)
+                  },1000);
             }
-          })
+        }
     }
 
     return (
@@ -142,7 +173,7 @@ const Game = (props) => {
                             <Col className="mb-2" id='fold'>
                                 <div id='infoI'>
                                     <h2>Total Matches: </h2>
-                                    <h3>3</h3>
+                                    <h3 id='matchesInfo'>0</h3>
                                 </div>
                             </Col>
                             <Col className="mb-2" id='fold'>
