@@ -148,6 +148,7 @@ const Game = (props) => {
             front.forEach(f => {
                 if (f.id === first.id || f.id === second.id) {
                     f.style.display = 'unset'
+                    f.style.background = 'rgba(0,0,0, 0.86)'
                 }
             })
         }
@@ -217,7 +218,7 @@ const Game = (props) => {
                     </Col>
                 </Row>
             </Container>
-            <Container id='gameCards' className='d-flex justify-content-center align-content-center align-items-center'>
+            <Container id='gameCards' className='d-flex justify-content-center align-content-center align-items-center pb-5'>
                 <Row>
                     <Col xs="12">
                         <Row className=" fade-in row-cols-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-2 justify-content-center pt-5">
