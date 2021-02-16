@@ -12,8 +12,10 @@ import {
   } from 'react-scroll';
 
 const Game = (props) => {
-    var [firstCardClicked, setFirstCardClicked] = useState(0);
-    var [secondCardClicked, setSecondCardClicked] = useState(0);
+    let [firstCardClicked, setFirstCardClicked] = useState(0);
+    let [secondCardClicked, setSecondCardClicked] = useState(0);
+    let [matches, setMatches] = useState(0);
+
     const [cards, setCards] = useState({
         deck: [
             {
@@ -164,6 +166,9 @@ const Game = (props) => {
                 secondCardClicked = null
                 setFirstCardClicked(0)
                 setSecondCardClicked(0)
+                setTimeout(() => {
+                    setMatches(matches + 1)
+                },200)
             } else {
                 setTimeout(() => {
                     console.log('no match')
@@ -173,7 +178,7 @@ const Game = (props) => {
                     setTimeout(() => {
                         firstCardClicked = null
                         secondCardClicked = null
-                    },1000)
+                    },500)
                   },1000);
             }
         }
@@ -193,7 +198,7 @@ const Game = (props) => {
                             <Col className="mb-2" id='fold'>
                                 <div id='infoI'>
                                     <h2>Total Matches: </h2>
-                                    <h3 id='matchesInfo'>0</h3>
+                                    <h3 id='matchesInfo'>{matches}</h3>
                                 </div>
                             </Col>
                             <Col className="mb-2" id='fold'>
