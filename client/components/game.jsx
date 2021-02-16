@@ -137,6 +137,19 @@ const Game = (props) => {
             })
         }
 
+        const resetCards = (first, second) => {
+            back.forEach(b => {
+                if (b.id === first.id || b.id === second.id) {
+                    b.style.display = 'none'
+                }
+            })
+            front.forEach(f => {
+                if (f.id === first.id || f.id === second.id) {
+                    f.style.display = 'unset'
+                }
+            })
+        }
+
         if (!firstCardClicked) {
             firstCardClicked = event.target
             setFirstCardClicked(event.target)
@@ -149,14 +162,18 @@ const Game = (props) => {
                 console.log('we have a match')
                 firstCardClicked = null
                 secondCardClicked = null
+                setFirstCardClicked(0)
+                setSecondCardClicked(0)
             } else {
                 setTimeout(() => {
-                    console.log(firstCardClicked.parentElement, secondCardClicked.parentElement)
                     console.log('no match')
                     setFirstCardClicked(0)
                     setSecondCardClicked(0)
-                    firstCardClicked = null
-                    secondCardClicked = null
+                    resetCards(firstCardClicked.parentElement, secondCardClicked.parentElement)
+                    setTimeout(() => {
+                        firstCardClicked = null
+                        secondCardClicked = null
+                    },1000)
                   },1000);
             }
         }
