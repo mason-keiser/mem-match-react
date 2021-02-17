@@ -15,6 +15,7 @@ const Game = (props) => {
     let [firstCardClicked, setFirstCardClicked] = useState(0);
     let [secondCardClicked, setSecondCardClicked] = useState(0);
     let [matches, setMatches] = useState(0);
+    let [attempts, setAttempts] = useState(0);
 
     const [cards, setCards] = useState({
         deck: [
@@ -121,6 +122,19 @@ const Game = (props) => {
         ]
     })
 
+    useEffect(() => {
+        shuffleRecArray()
+    },[])
+
+    const shuffleRecArray = () => {
+        let shuffledArray = cards.deck.sort((a, b) => {
+            return Math.random() - 0.5
+        })
+        setCards({
+          deck: shuffledArray
+        });
+      }
+
     const handleClick = (event) => {
         const back = document.querySelectorAll('.backCard');
         const front = document.querySelectorAll('.frontCard');
@@ -153,6 +167,13 @@ const Game = (props) => {
             })
         }
 
+        const accuracyCalc = () => {
+            if (attempts === 0) {
+                document.getElementById('accuracyInfo').textContent=  0 +'%';
+            }
+            document.getElementById('accuracyInfo').textContent = (Math.trunc(matches / attempts * 100) + '%')
+        }
+
         if (!firstCardClicked) {
             firstCardClicked = event.target
             setFirstCardClicked(event.target)
@@ -160,6 +181,8 @@ const Game = (props) => {
         } else {
             secondCardClicked = event.target
             setSecondCardClicked(event.target)
+            setAttempts(attempts + 1)
+            
             flipCards()
             if (firstCardClicked.title === secondCardClicked.title) {
                 console.log('we have a match')
@@ -169,6 +192,7 @@ const Game = (props) => {
                 setSecondCardClicked(0)
                 setTimeout(() => {
                     setMatches(matches + 1)
+                    document.getElementById('accuracyInfo').textContent = (Math.trunc(matches / attempts * 100) + '%')
                 },200)
             } else {
                 setTimeout(() => {
@@ -179,12 +203,18 @@ const Game = (props) => {
                     setTimeout(() => {
                         firstCardClicked = null
                         secondCardClicked = null
+                        document.getElementById('accuracyInfo').textContent = (Math.trunc(matches / attempts * 100) + '%')
                     },500)
                   },1000);
             }
         }
-
     }
+
+    
+
+    if (matches === 10) {
+        console.log('you win!')
+    }  
 
     return (
         <div id='gameBack'>
@@ -205,13 +235,13 @@ const Game = (props) => {
                             <Col className="mb-2" id='fold'>
                                 <div id='infoI'>
                                     <h2>Accuracy: </h2>
-                                    <h3 id='accuracyInfo'>58.97%</h3>
+                                    <h3 id='accuracyInfo'>0%</h3>
                                 </div>
                             </Col>
                             <Col className="mb-2" id='fold'>
                                 <div id='infoI'>
                                     <h2>Games Played: </h2>
-                                    <h3 id='totalGames'>69</h3>
+                                    <h3 id='totalGames'>(WIP)</h3>
                                 </div>
                             </Col>
                         </Row>
