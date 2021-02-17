@@ -185,27 +185,21 @@ const Game = (props) => {
             
             flipCards()
             if (firstCardClicked.title === secondCardClicked.title) {
-                console.log('we have a match')
-                firstCardClicked = null
-                secondCardClicked = null
-                setFirstCardClicked(0)
-                setSecondCardClicked(0)
-                setTimeout(() => {
-                    setMatches(matches + 1)
-                    document.getElementById('accuracyInfo').textContent = (Math.trunc(matches / attempts * 100) + '%')
-                },200)
+                console.log('we have a match');
+                firstCardClicked = null;
+                secondCardClicked = null;
+                setFirstCardClicked(0);
+                setSecondCardClicked(0);
+                setMatches(matches + 1);
             } else {
                 setTimeout(() => {
                     console.log('no match')
                     setFirstCardClicked(0)
                     setSecondCardClicked(0)
                     resetCards(firstCardClicked.parentElement, secondCardClicked.parentElement)
-                    setTimeout(() => {
-                        firstCardClicked = null
-                        secondCardClicked = null
-                        document.getElementById('accuracyInfo').textContent = (Math.trunc(matches / attempts * 100) + '%')
-                    },500)
-                  },1000);
+                    firstCardClicked = null
+                    secondCardClicked = null                   
+                  },750);
             }
         }
     }
@@ -215,6 +209,8 @@ const Game = (props) => {
     if (matches === 10) {
         console.log('you win!')
     }  
+
+    let accInfo = (attempts === 0) ? '0%' : (Math.trunc(matches / attempts * 100) + '%')
 
     return (
         <div id='gameBack'>
@@ -235,7 +231,7 @@ const Game = (props) => {
                             <Col className="mb-2" id='fold'>
                                 <div id='infoI'>
                                     <h2>Accuracy: </h2>
-                                    <h3 id='accuracyInfo'>0%</h3>
+                                    <h3 id='accuracyInfo'>{accInfo}</h3>
                                 </div>
                             </Col>
                             <Col className="mb-2" id='fold'>
