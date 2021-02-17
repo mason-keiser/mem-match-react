@@ -198,8 +198,8 @@ const Game = (props) => {
     }  
 
     let accInfo = (attempts === 0) ? '0%' : (Math.trunc(matches / attempts * 100) + '%')
-    const userTert = (props.user === undefined) ? 0 : props.user.wins
- 
+    const userTert = (Object.keys(props.user).length === 0) ? 0 : props.user.wins
+    
     return (
         <div id='gameBack'>
             <div style={{zIndex: '999', width: '100vw'}}>
