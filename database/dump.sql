@@ -62,7 +62,8 @@ CREATE TABLE public.users (
     user_id integer NOT NULL,
     name character varying(500) NOT NULL,
     password character varying(500) NOT NULL,
-    icon character varying(1000) NOT NULL
+    icon character varying(1000) NOT NULL,
+    wins integer
 );
 
 
@@ -97,9 +98,9 @@ ALTER TABLE ONLY public.users ALTER COLUMN user_id SET DEFAULT nextval('public.u
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.users (user_id, name, password, icon) FROM stdin;
-2	Mel	1234	/images/userIcons/fishIcon.png
-1	Mason	mk	/images/userIcons/fishIcon.png
+COPY public.users (user_id, name, password, icon, wins) FROM stdin;
+2	Mel	1234	/images/userIcons/fishIcon.png	\N
+1	Mason	mk	/images/userIcons/fishIcon.png	5
 \.
 
 

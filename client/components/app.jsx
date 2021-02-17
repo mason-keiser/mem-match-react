@@ -33,7 +33,8 @@ const App = (props) => {
                         setUser({
                             name: result[0].name,
                             user_id: result[0].user_id,
-                            icon: result[0].icon
+                            icon: result[0].icon,
+                            wins: result[0].wins
                         })
                         setView({name: 'game', params: {}})
                     }

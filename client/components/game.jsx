@@ -198,7 +198,8 @@ const Game = (props) => {
     }  
 
     let accInfo = (attempts === 0) ? '0%' : (Math.trunc(matches / attempts * 100) + '%')
-
+    const userTert = (props.user === undefined) ? 0 : props.user.wins
+ 
     return (
         <div id='gameBack'>
             <div style={{zIndex: '999', width: '100vw'}}>
@@ -224,7 +225,7 @@ const Game = (props) => {
                             <Col className="mb-2" id='fold'>
                                 <div id='infoI'>
                                     <h2>Games Played: </h2>
-                                    <h3 id='totalGames'>(WIP)</h3>
+                                    <h3 id='totalGames'>{userTert}</h3>
                                 </div>
                             </Col>
                         </Row>
