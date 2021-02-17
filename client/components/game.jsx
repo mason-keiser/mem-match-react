@@ -215,11 +215,20 @@ const Game = (props) => {
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({ user_id: props.user.user_id})
         })
+        .then(res => {
+            return res.json()
+        })
+        .then(result => {
+            console.log(result[0].wins)
+            document.getElementById('totalGames').textContent= result[0].wins
+        })
     }
 
     if (matches === 10) {
         console.log('you win!');
         winApiCall()
+        resetGame()
+     
     }  
 
     let accInfo = (attempts === 0) ? '0%' : (Math.trunc(matches / attempts * 100) + '%')
