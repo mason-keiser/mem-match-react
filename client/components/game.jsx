@@ -123,7 +123,7 @@ const Game = (props) => {
     })
 
     useEffect(() => {
-        shuffleRecArray()
+        // shuffleRecArray()
     },[])
 
     const shuffleRecArray = () => {
@@ -191,6 +191,21 @@ const Game = (props) => {
                   },750);
             }
         }
+    }
+
+    const resetGame = () => {
+        const back = document.querySelectorAll('.backCard');
+        const front = document.querySelectorAll('.frontCard');
+        setTimeout(() => {
+            back.forEach(b => {
+                b.style.display = 'none'
+            })
+            front.forEach(f => {
+                f.style.display = 'unset'
+            })
+        },1000);
+        setMatches(0);
+        setAttempts(0);
     }
 
     if (matches === 10) {
