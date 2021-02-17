@@ -32,8 +32,8 @@ SIGN UP API POST REQUEST THAT ADDS USER INFO TO DB
 app.post('/api/signUp/', (req, res, next) => {
   const sql = `
   INSERT INTO "users" ("name", "password", "icon")
-  VALUES                  ($1, $2, $3)
-  RETURNING *;
+    VALUES                  ($1, $2, $3)
+    RETURNING *;
   `;
   const params = [req.body.name, req.body.password, req.body.icon,];
   
@@ -64,8 +64,8 @@ app.get('/api/login/:name/:password', (req, res, next) => {
   const password = req.params.password;
   const sql = `
   SELECT * FROM "users"
-  WHERE name = $1 
-  AND password = $2;
+    WHERE name = $1 
+    AND password = $2;
   `;
   const params = [name, password];
 
@@ -87,6 +87,40 @@ app.get('/api/login/:name/:password', (req, res, next) => {
       res.status(500).json({ error: 'An unexpected error occurred.' });
     });
 });
+
+/* 
+
+==================================
+
+API CALL TO INCREMENT USER WINS
+
+==================================
+
+*/
+
+app.put('/api/win/', (req, res, next) => {
+  const user = req.body.user_id
+  const sql = `
+  UPDATE "users"
+    SET wins = wins + 1
+    WHERE user_id = $1
+    RETURNING * 
+  `
+  const param = [user]
+
+  db.query(sql,param) 
+    .then(result => {
+      if (!result.rows[0]) {
+        return res.status(400).json({ message: `No user attached to user id: ${user}` });
+      } else {
+        return res.status(200).json(result.rows);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'An unexpected error occurred.' });
+    });
+})
 
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
