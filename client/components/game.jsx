@@ -138,7 +138,6 @@ const Game = (props) => {
     const handleClick = (event) => {
         const back = document.querySelectorAll('.backCard');
         const front = document.querySelectorAll('.frontCard');
-        const matchesInfo = document.getElementById('matchesInfo')
         
         const flipCards = () => {
             back.forEach(b => {
@@ -167,25 +166,16 @@ const Game = (props) => {
             })
         }
 
-        const accuracyCalc = () => {
-            if (attempts === 0) {
-                document.getElementById('accuracyInfo').textContent=  0 +'%';
-            }
-            document.getElementById('accuracyInfo').textContent = (Math.trunc(matches / attempts * 100) + '%')
-        }
-
         if (!firstCardClicked) {
-            firstCardClicked = event.target
+            firstCardClicked = event.target;
             setFirstCardClicked(event.target)
-            flipCards()
+            flipCards();
         } else {
-            secondCardClicked = event.target
-            setSecondCardClicked(event.target)
-            setAttempts(attempts + 1)
-            
-            flipCards()
+            secondCardClicked = event.target;
+            setSecondCardClicked(event.target);
+            setAttempts(attempts + 1);
+            flipCards();
             if (firstCardClicked.title === secondCardClicked.title) {
-                console.log('we have a match');
                 firstCardClicked = null;
                 secondCardClicked = null;
                 setFirstCardClicked(0);
@@ -193,21 +183,18 @@ const Game = (props) => {
                 setMatches(matches + 1);
             } else {
                 setTimeout(() => {
-                    console.log('no match')
-                    setFirstCardClicked(0)
-                    setSecondCardClicked(0)
-                    resetCards(firstCardClicked.parentElement, secondCardClicked.parentElement)
-                    firstCardClicked = null
-                    secondCardClicked = null                   
+                    setFirstCardClicked(0);
+                    setSecondCardClicked(0);
+                    resetCards(firstCardClicked.parentElement, secondCardClicked.parentElement);
+                    firstCardClicked = null;
+                    secondCardClicked = null;                   
                   },750);
             }
         }
     }
 
-    
-
     if (matches === 10) {
-        console.log('you win!')
+        console.log('you win!');
     }  
 
     let accInfo = (attempts === 0) ? '0%' : (Math.trunc(matches / attempts * 100) + '%')
