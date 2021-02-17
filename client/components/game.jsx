@@ -16,6 +16,7 @@ const Game = (props) => {
     let [secondCardClicked, setSecondCardClicked] = useState(0);
     let [matches, setMatches] = useState(0);
     let [attempts, setAttempts] = useState(0);
+    let [wins, setWins] = useState(props.user.wins)
 
     const [cards, setCards] = useState({
         deck: [
@@ -208,13 +209,22 @@ const Game = (props) => {
         setAttempts(0);
     }
 
+    const winApiCall = () => {
+        fetch('/api/win/', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ user_id: props.user.user_id})
+        })
+    }
+
     if (matches === 10) {
         console.log('you win!');
+        winApiCall()
     }  
 
     let accInfo = (attempts === 0) ? '0%' : (Math.trunc(matches / attempts * 100) + '%')
     const userTert = (Object.keys(props.user).length === 0) ? 0 : props.user.wins
-    
+
     return (
         <div id='gameBack'>
             <div style={{zIndex: '999', width: '100vw'}}>
