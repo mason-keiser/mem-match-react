@@ -100,6 +100,11 @@ API CALL TO INCREMENT USER WINS
 
 app.put('/api/win/', (req, res, next) => {
   const user = req.body.user_id
+
+  if (!user) {
+    return res.status(404).json({message: `No user id submitted`})
+  }
+
   const sql = `
   UPDATE "users"
     SET wins = wins + 1
