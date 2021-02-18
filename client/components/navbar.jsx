@@ -24,7 +24,7 @@ const Navb = (props) => {
     const navSwitch = () => {
         if (props.props.view.name === 'login') {
             return (
-                <div onClick={() => props.props.setView({name: 'game', params: {}})} className = 'navButton'>Play Now</div>
+                <div onClick={() => props.loginAsGuest()} className = 'navButton'>Play Now</div>
             )
         } if (props.props.view.name == 'game' && (Object.keys(props.props.user).length === 0)) {
             return (

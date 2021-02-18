@@ -41,10 +41,37 @@ const App = (props) => {
                 })
     }
 
+    const loginAsGuest = () => {
+        fetch('/api/login/Guest/guest', {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json'}
+        })
+            .then(response => {
+                if (response.status === 400 || response.status === 404) {
+                    return null
+                } else {
+                    return response.json();
+                }
+            })
+                .then(result => {
+                    if (!result) {
+                        return null
+                    } else {
+                        setUser({
+                            name: result[0].name,
+                            user_id: result[0].user_id,
+                            icon: result[0].icon,
+                            wins: result[0].wins
+                        })
+                        setView({name: 'game', params: {}})
+                    }
+                })
+    }
+
     let tert = (view.name === 'init')
-        ?  <Home view={view} setView={setView}/>
+        ?  <Home view={view} setView={setView} loginAsGuest={loginAsGuest}/>
         : (view.name === 'login') 
-          ? <Login user={user} login={login} view={view} setView={setView}/>
+          ? <Login user={user} login={login} loginAsGuest={loginAsGuest} view={view} setView={setView}/>
           : (view.name === 'game')
             ? <Game view={view} setView={setView} user={user}/>
             : null
