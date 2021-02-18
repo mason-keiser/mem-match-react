@@ -127,6 +127,45 @@ app.put('/api/win/', (req, res, next) => {
     });
 })
 
+/*
+
+============================
+
+API CALL TO CHANGE USER ICON
+
+============================
+
+*/
+
+app.put('/api/changeIcon', (req, res, next) => {
+  const user_id = req.body.user_id;
+  const iconName = req.body.icon;
+
+  (!iconName) ? res.status(404).json({message: `No image assigned as new icon`}) : null
+  
+  const sql =  `
+  UPDATE "users"
+    SET icon = $1
+    WHERE user_id = $2
+    RETURNING *
+  `
+
+  const params = [iconName, user_id]
+
+  db.query(sql, params)
+  .then(result => {
+    if (!result.rows[0]) {
+      return res.status(400).json({ message: `No user attached to user id: ${user}` });
+    } else {
+      return res.status(200).json(result.rows);
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    res.status(500).json({ error: 'An unexpected error occurred.' });
+  });
+})
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });

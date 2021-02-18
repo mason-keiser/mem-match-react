@@ -288,14 +288,18 @@ Navbar Styling
 
 @media screen and (max-width: 450px) {
     #navIcon {
-        height: 3rem;
-        padding: 0.25rem;
+        height: 2.6rem;
+        padding: 0.22rem;
+    }
+
+    #userName{
+        padding-right: 1rem;
     }
     .nav {
         height: 13vh;    
     }
     .brand{
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
     .ham{
         font-size: 2rem;
@@ -343,6 +347,10 @@ Navbar Styling
     }
     .ham {
         font-size: 2rem;
+    }
+
+    #userName{
+        padding-right: 2.5rem;
     }
     .navButton {
         padding: 5px 10px 5px 10px;

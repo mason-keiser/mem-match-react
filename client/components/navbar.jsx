@@ -28,7 +28,7 @@ const Navb = (props) => {
             )
         } if (!(Object.keys(props.props.user).length === 0)) {
             return (
-                <div className='d-flex justify-content-between flex-row align-items-center pr-2'>
+                <div className='d-flex justify-content-between flex-row align-items-center '>
                     <img src={props.props.user.icon} alt="" id='navIcon'/>
                     <h3 id='userName'>{props.props.user.name}</h3>
                 </div>
