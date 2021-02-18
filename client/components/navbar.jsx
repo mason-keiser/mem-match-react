@@ -52,6 +52,7 @@ const Navb = (props) => {
             </Navbar>
             <div id='side'  className='hamCont'>
                 <h2 onClick={() => handleMenu()}className='x fa fa-times'></h2>
+                <h3 className='m-4' onClick={() => props.props.setView({name: 'login', params: {}})}>Login</h3>
                 <h3 onClick={() => props.props.setView({name: 'init', params: {}})}>◄ back home</h3>
                 <h4>Mason Keiser © 2021</h4 >
             </div>
