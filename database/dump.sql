@@ -100,7 +100,8 @@ ALTER TABLE ONLY public.users ALTER COLUMN user_id SET DEFAULT nextval('public.u
 
 COPY public.users (user_id, name, password, icon, wins) FROM stdin;
 2	Mel	1234	/images/userIcons/fishIcon.png	\N
-1	Mason	mk	/images/userIcons/fishIcon.png	5
+3	Guest	guest	/images/userIcons/whaleIcon.png	786
+1	Mason	mk	/images/userIcons/fishIcon.png	125
 \.
 
 
@@ -108,7 +109,7 @@ COPY public.users (user_id, name, password, icon, wins) FROM stdin;
 -- Name: users_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.users_user_id_seq', 2, true);
+SELECT pg_catalog.setval('public.users_user_id_seq', 3, true);
 
 
 --
