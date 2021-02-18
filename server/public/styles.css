@@ -283,6 +283,7 @@ Navbar Styling
 
 #side {
     height: 100%;
+    position: fixed;
 }
 
 
