@@ -124,7 +124,7 @@ const Game = (props) => {
     })
 
     useEffect(() => {
-        // shuffleRecArray()
+        shuffleRecArray()
     },[])
 
     const shuffleRecArray = () => {
