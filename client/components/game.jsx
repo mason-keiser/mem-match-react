@@ -203,11 +203,10 @@ const Game = (props) => {
                 setFirstCardClicked(0);
                 setSecondCardClicked(0);
                 if (matches === 10) {
-                    console.log('you win!');
                     const modal = document.getElementById('modalCont')
                         modal.style.display = 'flex'
-                        matches = 0
-                        attempts = 0
+                    matches = 0
+                    attempts = 0
                 }  
             } else {
                 setTimeout(() => {
@@ -224,15 +223,14 @@ const Game = (props) => {
     const resetGame = () => {
         const back = document.querySelectorAll('.backCard');
         const front = document.querySelectorAll('.frontCard');
-        const cards = document.querySelectorAll('.gameCard')
-        setTimeout(() => {
-            back.forEach(b => {
-                b.style.display = 'none'
-            })
-            front.forEach(f => {
-                f.style.display = 'unset'
-            })
-        },1000);
+        const cards = document.querySelectorAll('.gameCard') 
+        back.forEach(b => {
+            b.style.display = 'none'
+        })
+        front.forEach(f => {
+            f.style.display = 'unset'
+        })
+
         matches = 0
         attempts = 0
         setMatches(0);
@@ -252,11 +250,7 @@ const Game = (props) => {
             return res.json()
         })
         .then(result => {
-            console.log(result[0].wins)
-            setTimeout(() => {
-                document.getElementById('totalGames').textContent= result[0].wins
-            },1000)
-            
+            document.getElementById('totalGames').textContent= result[0].wins
         })
     }
 
