@@ -683,6 +683,7 @@ Game Styling
     border: 7px solid white;
     border-radius: 50%;
     margin: 1rem;
+    padding: 10px;
 }
 
 .playAgainButton {

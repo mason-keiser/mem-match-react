@@ -139,6 +139,7 @@ const Game = (props) => {
     const handleClick = (event) => {
         const back = document.querySelectorAll('.backCard');
         const front = document.querySelectorAll('.frontCard');
+        const cards = document.querySelectorAll('.gameCard')
         
         const flipCards = () => {
             back.forEach(b => {
@@ -167,6 +168,14 @@ const Game = (props) => {
             })
         }
 
+        const removeClick = () => {
+            cards.forEach(b => {
+                if (b.id === event.target.id) {
+                    b.removeAttribute('onclick')
+                }
+            })
+        }
+
         if (!firstCardClicked) {
             firstCardClicked = event.target;
             setFirstCardClicked(event.target)
@@ -177,6 +186,10 @@ const Game = (props) => {
             setAttempts(attempts + 1);
             flipCards();
             if (firstCardClicked.title === secondCardClicked.title) {
+                document.getElementById(firstCardClicked.id).onClick= ''
+                document.getElementById(secondCardClicked.id).onClick = ''
+                removeClick()
+                console.log(firstCardClicked.className, secondCardClicked.id)
                 firstCardClicked = null;
                 secondCardClicked = null;
                 setFirstCardClicked(0);
