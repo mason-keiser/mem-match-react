@@ -26,13 +26,9 @@ const Navb = (props) => {
             return (
                 <div onClick={() => props.loginAsGuest()} className = 'navButton'>Play Now</div>
             )
-        } if (props.props.view.name == 'game' && (Object.keys(props.props.user).length === 0)) {
-            return (
-                <div onClick={() => props.props.setView({name: 'login', params: {}})} className = 'navButton'>Login</div>
-            )
         } if (!(Object.keys(props.props.user).length === 0)) {
             return (
-                <div className='d-flex justify-content-between flex-row align-items-center'>
+                <div className='d-flex justify-content-between flex-row align-items-center pr-2'>
                     <img src={props.props.user.icon} alt="" id='navIcon'/>
                     <h3 id='userName'>{props.props.user.name}</h3>
                 </div>
