@@ -124,7 +124,7 @@ const Game = (props) => {
     })
 
     useEffect(() => {
-        shuffleRecArray()
+      //  shuffleRecArray()
     },[])
 
     const shuffleRecArray = () => {
@@ -229,16 +229,44 @@ const Game = (props) => {
 
     if (matches === 10) {
         console.log('you win!');
+        const modal = document.getElementById('modalCont')
+            modal.style.display = 'flex'
+    }  
+
+    const modalButtonFx = () => {
         winApiCall()
         resetGame()
-     
-    }  
+        const modal = document.getElementById('modalCont')
+            modal.style.display = 'none'
+    }
 
     let accInfo = (attempts === 0) ? '0%' : (Math.trunc(matches / attempts * 100) + '%')
     const userTert = (Object.keys(props.user).length === 0) ? 0 : props.user.wins
 
+    const modal = () => {
+        return (
+            <div className='modalCont' id='modalCont'>
+                <div className='d-flex flex-column align-items-center'>
+                    <div className='modalTitle'>
+                        <h1 style={{textAlign: 'center', color: 'white'}}>You Win!</h1>
+                    </div>
+                    <div>
+                        <img src={props.user.icon} alt="" id='winPlayerLogo'/>
+                        <h2 className='' style={{textAlign: 'center', color: 'white'}}>Good Job {props.user.name}!</h2>
+                    </div>
+                    <div>
+                        <button onClick={() => modalButtonFx()} className='playAgainButton'>
+                            Play Again?
+                        </button>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div id='gameBack'>
+            {modal()}
             <div style={{zIndex: '999', width: '100vw'}}>
                 <Navb props={props}/>
             </div>

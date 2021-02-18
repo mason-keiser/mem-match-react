@@ -659,6 +659,33 @@ Game Styling
     background: rgba(0,0,0, 0.8);
 }
 
+.modalCont {
+    width: 50vw;
+    background:  rgba(0,0,0, 0.9);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+#winPlayerLogo {
+    height: 20vh;
+}
+
+.playAgainButton {
+    text-align: center;
+    border: white 4px solid;
+    border-radius: 15px;
+    margin: 1rem;
+    color: white;
+    width: 10vw;
+    cursor: pointer;
+    width: fit-content;
+    background:  rgba(0,0,0, 0.9);
+}
+
 @media screen and (min-width: 800px) {
     #gameInfo {
         max-width: 90vw;
