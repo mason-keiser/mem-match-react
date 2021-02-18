@@ -3,6 +3,7 @@ import React from 'react'
 import Home from './landing'
 import Login from "./login"
 import Game from './game'
+import UserIcons from "./userIcons"
 
 const App = (props) => {
 
@@ -74,7 +75,9 @@ const App = (props) => {
           ? <Login user={user} login={login} loginAsGuest={loginAsGuest} view={view} setView={setView}/>
           : (view.name === 'game')
             ? <Game view={view} setView={setView} user={user}/>
-            : null
+            : (view.name === 'userIcons')
+                ? <UserIcons view={view} setView={setView} user={user}/>
+                : null
 
     return (
         <div className='appCont'>

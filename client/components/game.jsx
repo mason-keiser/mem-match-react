@@ -273,7 +273,7 @@ const Game = (props) => {
                     </div>
                     <div className='d-flex flex-column align-items-center justify-content-center'>
                         <img src={props.user.icon} alt="" id='winPlayerLogo'/>
-                        <h2 className='' style={{textAlign: 'center', color: 'white'}}>Good Job {props.user.name}!</h2>
+                        <h2 className='blink' style={{textAlign: 'center', color: 'white'}}>Good Job {props.user.name}!</h2>
                     </div>
                     <div>
                         <button onClick={() => modalButtonFx()} className='playAgainButton'>

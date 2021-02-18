@@ -675,7 +675,6 @@ Game Styling
     z-index: 999;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    max-height: 90%;
 }
 
 #winPlayerLogo {
@@ -685,7 +684,7 @@ Game Styling
     margin: 1rem;
     padding: 10px;
     animation-name: spin;
-    animation-duration: 1000ms;
+    animation-duration: 700ms;
     animation-timing-function: linear; 
 }
 
@@ -698,6 +697,15 @@ Game Styling
     }
 }
 
+.blink {
+    animation: blinker 1s linear ;
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
 
 .playAgainButton {
     text-align: center;
