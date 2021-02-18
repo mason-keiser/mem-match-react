@@ -220,7 +220,10 @@ const Game = (props) => {
         })
         .then(result => {
             console.log(result[0].wins)
-            document.getElementById('totalGames').textContent= result[0].wins
+            setTimeout(() => {
+                document.getElementById('totalGames').textContent= result[0].wins
+            },1000)
+            
         })
     }
 
