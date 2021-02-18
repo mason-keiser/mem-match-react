@@ -250,7 +250,7 @@ const Game = (props) => {
                     <div className='modalTitle'>
                         <h1 style={{textAlign: 'center', color: 'white'}}>You Win!</h1>
                     </div>
-                    <div>
+                    <div className='d-flex flex-column align-items-center justify-content-center'>
                         <img src={props.user.icon} alt="" id='winPlayerLogo'/>
                         <h2 className='' style={{textAlign: 'center', color: 'white'}}>Good Job {props.user.name}!</h2>
                     </div>
