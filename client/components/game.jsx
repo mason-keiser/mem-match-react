@@ -125,6 +125,10 @@ const Game = (props) => {
 
     useEffect(() => {
       //  shuffleRecArray()
+        const cards = document.querySelectorAll('.gameCard')
+        for (let i = 0; i < cards.length; i++) {
+            cards[i].addEventListener('click', handleClick)
+        }
     },[])
 
     const shuffleRecArray = () => {
@@ -183,18 +187,28 @@ const Game = (props) => {
         } else {
             secondCardClicked = event.target;
             setSecondCardClicked(event.target);
-            setAttempts(attempts + 1);
+            attempts = attempts + 1
+            setAttempts(attempts);
             flipCards();
             if (firstCardClicked.title === secondCardClicked.title) {
-                document.getElementById(firstCardClicked.id).onClick= ''
-                document.getElementById(secondCardClicked.id).onClick = ''
-                removeClick()
-                console.log(firstCardClicked.className, secondCardClicked.id)
+                matches = matches + 1
+                setMatches(matches);
+                for (let i = 0; i < cards.length; i++) {
+                    if (firstCardClicked.id === cards[i].id || secondCardClicked.id === cards[i].id) {
+                        cards[i].removeEventListener('click', handleClick)
+                    }
+                }
                 firstCardClicked = null;
                 secondCardClicked = null;
                 setFirstCardClicked(0);
                 setSecondCardClicked(0);
-                setMatches(matches + 1);
+                if (matches === 10) {
+                    console.log('you win!');
+                    const modal = document.getElementById('modalCont')
+                        modal.style.display = 'flex'
+                        matches = 0
+                        attempts = 0
+                }  
             } else {
                 setTimeout(() => {
                     setFirstCardClicked(0);
@@ -210,6 +224,7 @@ const Game = (props) => {
     const resetGame = () => {
         const back = document.querySelectorAll('.backCard');
         const front = document.querySelectorAll('.frontCard');
+        const cards = document.querySelectorAll('.gameCard')
         setTimeout(() => {
             back.forEach(b => {
                 b.style.display = 'none'
@@ -218,8 +233,13 @@ const Game = (props) => {
                 f.style.display = 'unset'
             })
         },1000);
+        matches = 0
+        attempts = 0
         setMatches(0);
         setAttempts(0);
+        for (let i = 0; i < cards.length; i++) {
+            cards[i].addEventListener('click', handleClick)
+        }
     }
 
     const winApiCall = () => {
@@ -239,12 +259,6 @@ const Game = (props) => {
             
         })
     }
-
-    if (matches === 10) {
-        console.log('you win!');
-        const modal = document.getElementById('modalCont')
-            modal.style.display = 'flex'
-    }  
 
     const modalButtonFx = () => {
         winApiCall()
