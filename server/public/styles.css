@@ -668,13 +668,14 @@ Game Styling
     justify-content: center;
     align-items: center;
     display: none;
-    position: absolute;
+    position: fixed;
     left: 50%;
-    top: 60%; 
+    top: 50%; 
     transform: translate(-50%, -50%);
     z-index: 999;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    max-height: 90%;
 }
 
 #winPlayerLogo {
@@ -800,5 +801,9 @@ Game Styling
         height: 48vh;
         width: 35vw;
       
+    }
+
+    .playAgainButton{
+        width: 30vw;
     }
 }
