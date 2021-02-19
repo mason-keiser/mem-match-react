@@ -875,7 +875,7 @@ CHANGE USER ICON STYLING
 }
 
 .iconHolder {
-    background: rgba(0,0,0, 0.8);
+    background: rgba(0,0,0, 0.7);
     border: 3px solid transparent;
     border-radius: 50%;
     object-fit: contain;
@@ -883,6 +883,7 @@ CHANGE USER ICON STYLING
     width: 15vw;
     display: flex;
     cursor: pointer;
+    padding: 15px;
 }
 
 .iconHolder:hover {
@@ -919,7 +920,7 @@ CHANGE USER ICON STYLING
         font-size: 3rem;
     }
 
-    #turtle{
+    .turtle{
         margin-left: 4rem;
     }
 }
@@ -947,7 +948,7 @@ CHANGE USER ICON STYLING
         margin-bottom: 1rem;
         padding: 5px;
     }
-    #turtle{
+    .turtle{
         margin-left: 3rem;
     }
 }

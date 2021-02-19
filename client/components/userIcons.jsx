@@ -5,12 +5,20 @@ import {
     Row,
     Col
   } from 'reactstrap';
+import { setActiveLink } from 'react-scroll/modules/mixins/scroller';
 
 const UserIcons = (props) => {
-    const [uIcon, setUIcon] = useState(props.user.icon)
+    const [uIcon, setUIcon] = useState(0)
 
-    const changeIcon = (icon) => {
+    const changeIcon = () => {
         const user_id = props.user.user_id;
+        const icon = uIcon;
+        
+        if(icon === 0) {
+            // user must select new icon option to submit
+            return null
+        }
+
         fetch ('/api/changeIcon', {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json'},
@@ -28,8 +36,17 @@ const UserIcons = (props) => {
                     return null
                 } else {
                     setUIcon(result[0].icon)
+                    if (props.user.user_id === 3) {
+                        props.loginAsGuest()
+                    } else {
+                        props.login({name: props.user.name, password: props.user.password})
+                    }
                 }
             })
+    }
+
+    const selectIcon = (event) => {
+        setUIcon(event.target.id)
     }
 
     return (
@@ -46,34 +63,37 @@ const UserIcons = (props) => {
                     <Col xs="12">
                         <Row className="d-flex m-auto fade-in row-cols-3 row-cols-md-2 row-cols-lg-3 justify-content-center pt-5 pb-5">
                             <Col>
-                                <div className='iconHolder'>
-                                    <img src="/images/userIcons/dolphinIcon.png" alt="dolphin"/>
+                                <div onClick={() => selectIcon(event)} className='iconHolder' id ='/images/userIcons/dolphinIcon.png'>
+                                    <img src="/images/userIcons/dolphinIcon.png" alt="dolphin" id ='/images/userIcons/dolphinIcon.png'/>
                                 </div>
                             </Col>
                             <Col>
-                                <div className='iconHolder'>
-                                    <img src="/images/userIcons/jellyfishIcon.png" alt="jellyfish" />
+                                <div onClick={() => selectIcon(event)} className='iconHolder' id ='/images/userIcons/jellyfishIcon.png'>
+                                    <img src="/images/userIcons/jellyfishIcon.png" alt="jellyfish"  id ='/images/userIcons/jellyfishIcon.png' />
                                 </div>
                             </Col>
                             <Col>
-                                <div className='iconHolder'>
-                                    <img src="/images/userIcons/fishIcon.png" alt="fish"/>
+                                <div onClick={() => selectIcon(event)} className='iconHolder' id ='/images/userIcons/fishIcon.png'>
+                                    <img src="/images/userIcons/fishIcon.png" alt="fish" id ='/images/userIcons/fishIcon.png'/>
                                 </div>
                             </Col>
                             <Col>
-                                <div className='iconHolder' id='turtle'>
-                                    <img src="/images/userIcons/turtleIcon.png" alt="turtle"/>
+                                <div onClick={() => selectIcon(event)} className='iconHolder turtle' id ='/images/userIcons/turtleIcon.png'>
+                                    <img src="/images/userIcons/turtleIcon.png" alt="turtle" id ='/images/userIcons/turtleIcon.png'/>
                                 </div>
                             </Col>
                             <Col>
-                                <div className='iconHolder'>
-                                    <img src="/images/userIcons/whaleIcon.png" alt="whale"/>
+                                <div onClick={() => selectIcon(event)} className='iconHolder' id ='/images/userIcons/whaleIcon.png'>
+                                    <img src="/images/userIcons/whaleIcon.png" alt="whale" id ='/images/userIcons/whaleIcon.png'/>
                                 </div>
                             </Col>
                         </Row>
                     </Col>
                 </Row>
             </Container>
+            <div>
+                <button onClick = {() => changeIcon()} >Set Icon</button>
+            </div>
         </div>
     )
 }

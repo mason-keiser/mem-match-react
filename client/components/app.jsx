@@ -35,7 +35,8 @@ const App = (props) => {
                             name: result[0].name,
                             user_id: result[0].user_id,
                             icon: result[0].icon,
-                            wins: result[0].wins
+                            wins: result[0].wins,
+                            password: result[0].password
                         })
                         setView({name: 'game', params: {}})
                     }
@@ -76,7 +77,7 @@ const App = (props) => {
           : (view.name === 'game')
             ? <Game view={view} setView={setView} user={user}/>
             : (view.name === 'userIcons')
-                ? <UserIcons view={view} setView={setView} user={user}/>
+                ? <UserIcons view={view} setView={setView} user={user} loginAsGuest={loginAsGuest} login={login}/>
                 : null
 
     return (
