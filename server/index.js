@@ -29,19 +29,21 @@ SIGN UP API POST REQUEST THAT ADDS USER INFO TO DB
 
 */
 
-app.post('/api/signUp/', (req, res, next) => {
+app.post('/api/signUp', (req, res, next) => {
   const sql = `
-  INSERT INTO "users" ("name", "password", "icon")
-    VALUES                  ($1, $2, $3)
+  INSERT INTO "users" ("name", "password", "icon", "wins")
+    VALUES                  ($1, $2, $3, $4)
     RETURNING *;
   `;
-  const params = [req.body.name, req.body.password, req.body.icon,];
+
+  const params = [req.body.name, req.body.password, req.body.icon, req.body.wins];
   
   for (let i = 0; i < params.length; i ++) {
     if (!params[i]) {
       return res.status(400).json({ error: 'all signup input forms must be filled' });
     }
   }
+  
   db.query(sql, params)
     .then(result => {
       const row = result.rows[0];

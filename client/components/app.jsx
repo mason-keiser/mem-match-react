@@ -73,6 +73,7 @@ const App = (props) => {
     }
 
     const signUp = (signupInfo) => {
+        console.log(signupInfo)
         fetch('/api/signUp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},

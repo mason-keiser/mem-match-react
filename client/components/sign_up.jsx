@@ -10,6 +10,7 @@ const SignUp = (props) => {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [icon, setIcon] = useState('');
+    const [wins, setWins] = useState('0')
 
 
     const handleSubmit = (callback) => {
@@ -17,7 +18,8 @@ const SignUp = (props) => {
         const obj = {
             name: name,
             password: password,
-            icon: icon
+            icon: icon,
+            wins: wins
         }
         if (!obj) {
             null
