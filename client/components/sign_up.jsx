@@ -11,6 +11,21 @@ const SignUp = (props) => {
     const [password, setPassword] = useState('');
     const [icon, setIcon] = useState('');
 
+
+    const handleSubmit = (callback) => {
+        event.preventDefault()
+        const obj = {
+            name: name,
+            password: password,
+            icon: icon
+        }
+        if (!obj) {
+            null
+        } else {
+        callback(obj)
+        }
+    }
+
     const handleChange = (event) => {
         if (event.target.id === 'name') {
             setName(event.target.value)
@@ -23,13 +38,17 @@ const SignUp = (props) => {
         }
     } 
 
+    const handleIcon = (event) => {
+        setIcon(event.target.id)
+    }
+
     return (
         <div className='con2'>
             <img src="/images/uw.jpg" alt="homeScreen" id='homeL2'/>
             <Navb user={props.user} props={props} loginAsGuest={props.loginAsGuest}/>
             <div className='signupCont'>
             <div>
-                <form onSubmit={() => handleSubmit(props.login)} className='loginForm2'>
+                <form onSubmit={() => handleSubmit(props.signUp)} className='loginForm2'>
                     <h1>Sign Up!</h1>
                         <div className='form-group'>
                             <label htmlFor="name">Name: </label>
@@ -46,27 +65,27 @@ const SignUp = (props) => {
                                     <Col xs="12">
                                         <Row className="d-flex m-auto fade-in row-cols-3 row-cols-md-2 row-cols-lg-3 justify-content-center pt-3 pb-3">
                                             <Col style={{paddingLeft: '5px', paddingRight: '5px'}}>
-                                                <div className='iconHolder2' id ='/images/userIcons/dolphinIcon.png'>
+                                                <div onClick={() => handleIcon(event)} className='iconHolder2' id ='/images/userIcons/dolphinIcon.png'>
                                                     <img src="/images/userIcons/dolphinIcon.png" alt="dolphin" id ='/images/userIcons/dolphinIcon.png'/>
                                                 </div>
                                             </Col>
                                             <Col style={{paddingLeft: '5px', paddingRight: '5px'}}>
-                                                <div className='iconHolder2' id ='/images/userIcons/jellyfishIcon.png'>
+                                                <div onClick={() => handleIcon(event)} className='iconHolder2' id ='/images/userIcons/jellyfishIcon.png'>
                                                     <img src="/images/userIcons/jellyfishIcon.png" alt="jellyfish"  id ='/images/userIcons/jellyfishIcon.png' />
                                                 </div>
                                             </Col>
                                             <Col style={{paddingLeft: '5px', paddingRight: '5px'}}>
-                                                <div className='iconHolder2' id ='/images/userIcons/fishIcon.png'>
+                                                <div onClick={() => handleIcon(event)} className='iconHolder2' id ='/images/userIcons/fishIcon.png'>
                                                     <img src="/images/userIcons/fishIcon.png" alt="fish" id ='/images/userIcons/fishIcon.png'/>
                                                 </div>
                                             </Col>
                                             <Col style={{paddingLeft: '5px', paddingRight: '5px'}}>
-                                                <div className='iconHolder2 ' id ='/images/userIcons/turtleIcon.png'>
+                                                <div onClick={() => handleIcon(event)} className='iconHolder2 ' id ='/images/userIcons/turtleIcon.png'>
                                                     <img src="/images/userIcons/turtleIcon.png" alt="turtle" id ='/images/userIcons/turtleIcon.png'/>
                                                 </div>
                                             </Col>
                                             <Col style={{paddingLeft: '5px', paddingRight: '5px'}}>
-                                                <div className='iconHolder2' id ='/images/userIcons/whaleIcon.png'>
+                                                <div onClick={() => handleIcon(event)} className='iconHolder2' id ='/images/userIcons/whaleIcon.png'>
                                                     <img src="/images/userIcons/whaleIcon.png" alt="whale" id ='/images/userIcons/whaleIcon.png'/>
                                                 </div>
                                             </Col>

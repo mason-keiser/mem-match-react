@@ -64,11 +64,41 @@ const App = (props) => {
                             name: result[0].name,
                             user_id: result[0].user_id,
                             icon: result[0].icon,
-                            wins: result[0].wins
+                            wins: result[0].wins,
+                            password: result[0].password
                         })
                         setView({name: 'game', params: {}})
                     }
                 })
+    }
+
+    const signUp = (signupInfo) => {
+        fetch('/api/signUp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(signupInfo)
+        })
+        .then(response => {
+            if (response.status === 400 || response.status === 404) {
+                return null
+            } else {
+                return response.json();
+            }
+        })
+            .then(result => {
+                if (!result) {
+                    return null
+                } else {
+                    setUser({
+                        name: result.name,
+                        user_id: result.user_id,
+                        icon: result.icon,
+                        wins: result.wins,
+                        password: result.password
+                    })
+                    setView({name: 'game', params: {}})
+                }
+            })
     }
 
     let tert = (view.name === 'init')
@@ -80,7 +110,7 @@ const App = (props) => {
             : (view.name === 'userIcons')
                 ? <UserIcons view={view} setView={setView} user={user} loginAsGuest={loginAsGuest} login={login}/>
                 : (view.name === 'signup')
-                    ? <SignUp user={user} view={view} loginAsGuest={loginAsGuest} setView={setView}/>
+                    ? <SignUp user={user} view={view} signUp={signUp} loginAsGuest={loginAsGuest} setView={setView}/>
                     : null
 
     return (

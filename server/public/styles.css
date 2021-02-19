@@ -1015,8 +1015,7 @@ SIGNUP PAGE STYLING
 }
 
 .iconHolder2 {
-    background: rgba(255,255,255, 1);
-    border: 3px solid transparent;
+    background: rgba(0,0,0, 0.7);
     border-radius: 50%;
     object-fit: contain;
     height: 10vh;
@@ -1056,8 +1055,8 @@ SIGNUP PAGE STYLING
 }
 
 .iconHolder2:hover {
-    background: rgba(0,0,0, 0.7);
-    border: 3px solid black;    
+    background: rgba(255,255,255, 1);
+ 
 }
 
 .loginbutton2{
