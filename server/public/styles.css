@@ -992,3 +992,122 @@ CHANGE USER ICON STYLING
         margin-left: 3rem;
     }
 }
+
+/* 
+
+==================================
+
+SIGNUP PAGE STYLING
+
+==================================
+
+*/
+
+.signupCont{
+    position: relative;
+    height: 100%;
+    color: white;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconHolder2 {
+    background: rgba(255,255,255, 1);
+    border: 3px solid transparent;
+    border-radius: 50%;
+    object-fit: contain;
+    height: 10vh;
+    width: 4.5vw;
+    display: flex;
+    cursor: pointer;
+}
+
+.iconHolder2 >img {
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+}
+
+.con2 {
+    height: 100vh;
+}
+
+.loginForm2 {
+    background: rgba(0,0,0, 0.7);
+    height: fit-content;
+    padding: 1rem 2rem 1rem 2rem;
+    width: 45vw;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#homeL2 {
+    height: 120vh; 
+    position: absolute;
+    width: 100vw;
+    background-position: center center;
+    overflow: auto;   
+}
+
+.iconHolder2:hover {
+    background: rgba(0,0,0, 0.7);
+    border: 3px solid black;    
+}
+
+.loginbutton2{
+    text-align: center;
+    border: white 4px solid;
+    border-radius: 15px;
+    margin: 0.5rem;
+    color: white;
+    width: 10vw;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.loginbutton2 > button:hover {
+    border-radius: 25px;
+    backdrop-filter: blur(55px);
+    transition: ease-in-out 200ms;
+    perspective: 100px;
+    background-color: black;
+    opacity: 50%;
+    backdrop-filter: blur(5px);
+    color: rgba(255,255,255, 1); 
+    
+}
+
+@media screen and (max-width: 1100px) {
+    .loginForm2 {
+        width: 60vw;
+    }
+
+    .loginbutton2 {
+        width: 20vw;
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+    .loginForm2 {
+        width: 90vw;
+    }
+    .loginbutton2 {
+        width: 40vw;
+    }
+
+    .iconHolder2{
+        width: 12vw;
+        height: 6vh;    
+    }
+    .iconCol{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}

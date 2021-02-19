@@ -22,7 +22,7 @@ const Navb = (props) => {
     }
 
     const navSwitch = () => {
-        if (props.props.view.name === 'login') {
+        if (props.props.view.name === 'login' || props.props.view.name === 'signup') {
             return (
                 <div onClick={() => props.loginAsGuest()} className = 'navButton'>Play Now</div>
             )
@@ -41,12 +41,12 @@ const Navb = (props) => {
         <div id='side'  className='hamCont'>
                 <h2 onClick={() => handleMenu()}className='x fa fa-times'></h2>
                 <h3 className='m-4' onClick={() => props.props.setView({name: 'login', params: {}})}>Login</h3>
-
+                <h3 className='m-4' onClick={() => props.props.setView({name: 'signup', params: {}})}>Sign Up</h3>
                 <h3 className='m-2' onClick={() => props.props.setView({name: 'game', params: {}})}>◄ back to game</h3>
                 <h4>Mason Keiser © 2021</h4 >
         </div>
     ) 
-    : (props.props.view.name === 'login')
+    : (props.props.view.name === 'login' || props.props.view.name === 'signup')
         ? (
             <div id='side'  className='hamCont'>
                 <h2 onClick={() => handleMenu()}className='x fa fa-times'></h2>
@@ -60,6 +60,7 @@ const Navb = (props) => {
             <div id='side'  className='hamCont'>
                 <h2 onClick={() => handleMenu()}className='x fa fa-times'></h2>
                 <h3 className='m-4' onClick={() => props.props.setView({name: 'login', params: {}})}>Login</h3>
+                <h3 className='m-4' onClick={() => props.props.setView({name: 'signup', params: {}})}>Sign Up</h3>
                 <h3 className='mt-3 mb-5' onClick={() => props.props.setView({name: 'userIcons', params: {}})}>Change User Icon</h3>
                 <h3 onClick={() => props.props.setView({name: 'init', params: {}})}>◄ back home</h3>
                 <h4>Mason Keiser © 2021</h4 >

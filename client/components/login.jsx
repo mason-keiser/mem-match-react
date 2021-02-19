@@ -48,7 +48,7 @@ const Login = (props) => {
                         <div className='loginbutton'>
                             <button type='submit' className='btn mt-2 white' style={{color: 'white', fontSize: '2rem'}}>Login</button>
                         </div>
-                        <h4 className='needacc m-3'>Click here to sign up</h4>
+                        <h4 onClick={() => props.setView({name: 'signup', params: {}})} className='needacc m-3'>Click here to sign up</h4>
                     </form>
 
                 </div>
