@@ -1117,3 +1117,27 @@ SIGNUP PAGE STYLING
         height: 6vh;    
     }
 }
+
+@media screen and (max-height: 420px) {
+    .con2 {
+        height: 164vh;
+    }
+
+    #homeL2 {
+        height: 200vh;
+    }
+}
+
+@media screen and (max-height: 330px) {
+    .con2 {
+        height: 200vh;
+    }
+
+    #homeL2 {
+        height: 230vh;
+    }
+
+.loginbutton2{
+    width: 30vw;
+}
+}
