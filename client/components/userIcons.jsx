@@ -47,6 +47,14 @@ const UserIcons = (props) => {
 
     const selectIcon = (event) => {
         setUIcon(event.target.id)
+        const icons = document.querySelectorAll('.iconHolder');
+        for(let i = 0; i < icons.length; i++) {
+            if (icons[i].id === event.target.id) {
+                icons[i].style.border = '5px solid white'
+            } else {
+                icons[i].style.border = '5px solid transparent'
+            }
+        }
     }
 
     return (
@@ -91,8 +99,8 @@ const UserIcons = (props) => {
                     </Col>
                 </Row>
             </Container>
-            <div>
-                <button onClick = {() => changeIcon()} >Set Icon</button>
+            <div className='btnC'>
+                <button className='setIconButton' onClick = {() => changeIcon()} >Set Icon</button>
             </div>
         </div>
     )

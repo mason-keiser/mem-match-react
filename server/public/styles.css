@@ -876,7 +876,7 @@ CHANGE USER ICON STYLING
 
 .iconHolder {
     background: rgba(0,0,0, 0.7);
-    border: 3px solid transparent;
+    border: 5px solid transparent;
     border-radius: 50%;
     object-fit: contain;
     height: 25vh;
@@ -888,7 +888,7 @@ CHANGE USER ICON STYLING
 
 .iconHolder:hover {
     background: rgba(0,0,0, 1);
-    border: 3px solid white;    
+    border: 5px solid white;    
 }
 
 .iconHolder >img {
@@ -902,6 +902,38 @@ CHANGE USER ICON STYLING
     text-align: center;
 }
 
+.setIconButton {
+    text-align: center;
+    border: white 4px solid;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    margin: 1rem;
+
+    text-align: center;
+    color: white;
+    width: 15vw;
+    cursor: pointer;
+    background:  rgba(0,0,0, 0.9);
+}
+
+.btnC{
+    width: 100vw;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.setIconButton:hover {
+    backdrop-filter: blur(55px);
+    transition: ease-in-out 200ms;
+    perspective: 100px;
+    background-color: black;
+    opacity: 50%;
+    backdrop-filter: blur(5px);
+    color: rgba(255,255,255, 1); 
+}
+
 @media screen and (max-width: 420px) {
     .iconHolder{
         width: 22vw;
@@ -909,6 +941,10 @@ CHANGE USER ICON STYLING
         margin-top: 1rem;
         margin-bottom: 1rem;
         padding: 5px;
+    }
+
+    .setIconButton{
+        width: 60vw;
     }
 
     .iconHolder > img{
@@ -922,6 +958,10 @@ CHANGE USER ICON STYLING
 
     .turtle{
         margin-left: 4rem;
+    }
+
+    .btnC{
+        margin-top: 0;
     }
 }
 
