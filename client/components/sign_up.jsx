@@ -42,6 +42,14 @@ const SignUp = (props) => {
 
     const handleIcon = (event) => {
         setIcon(event.target.id)
+        const icons = document.querySelectorAll('.iconHolder2');
+        for(let i = 0; i < icons.length; i++) {
+            if (icons[i].id === event.target.id) {
+                icons[i].style.background = 'white'
+            } else {
+                icons[i].style.background = 'rgba(0,0,0,0.7)'
+            }
+        }
     }
 
     return (

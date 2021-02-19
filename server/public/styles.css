@@ -1110,3 +1110,10 @@ SIGNUP PAGE STYLING
         padding-right: 5px;
     }
 }
+
+@media screen and (max-width: 330px) {
+    .iconHolder2{
+        width: 8vw;
+        height: 6vh;    
+    }
+}
