@@ -908,12 +908,12 @@ CHANGE USER ICON STYLING
     border-radius: 15px;
     font-size: 1.5rem;
     margin: 1rem;
-
+    background: transparent;
     text-align: center;
     color: white;
     width: 15vw;
     cursor: pointer;
-    background:  rgba(0,0,0, 0.9);
+   
 }
 
 .btnC{
