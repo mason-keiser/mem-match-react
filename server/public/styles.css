@@ -374,18 +374,17 @@ Navbar Styling
     }
 }
 
-@media screen and (min-width: 1000px) {
-    #userName {
-        padding-right: 3rem;
-    }
-}
-
 @media screen and (min-height: 1000px) {
     #userName {
         padding-right: 2rem;
     }
 }
 
+@media screen and (min-width: 900px) {
+    #userName {
+        padding-right: 3rem;
+    }
+}
 
 /* 
 
