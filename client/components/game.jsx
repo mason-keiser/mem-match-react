@@ -124,7 +124,7 @@ const Game = (props) => {
     })
 
     useEffect(() => {
-      //  shuffleRecArray()
+        shuffleRecArray()
         const cards = document.querySelectorAll('.gameCard')
         for (let i = 0; i < cards.length; i++) {
             cards[i].addEventListener('click', handleClick)
@@ -256,6 +256,7 @@ const Game = (props) => {
 
     const modalButtonFx = () => {
         winApiCall()
+        shuffleRecArray()
         resetGame()
         const modal = document.getElementById('modalCont')
             modal.style.display = 'none'
