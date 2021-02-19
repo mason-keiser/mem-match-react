@@ -1,5 +1,5 @@
 # mem-match-react
-A repository to hold a memory match game developed using React Hooks
+A memory match game that was designed with backend features to make a full stack React game.
 
 * Link: https://mm.masonkeiser.com/
 
