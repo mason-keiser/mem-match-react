@@ -844,6 +844,21 @@ Game Styling
     }
 }
 
+
+@media screen and (orientation: landscape) and (max-height: 325px) {
+    #infoI{
+        height: 45vh
+    }
+
+    #side > h3 {
+        font-size: 1rem;
+    }
+
+    .iconHolder{
+        padding: 2px;
+    }
+}
+
 /* 
 
 ==================================
@@ -1142,7 +1157,21 @@ SIGNUP PAGE STYLING
         height: 230vh;
     }
 
-.loginbutton2{
-    width: 30vw;
+    .loginbutton2{
+        width: 30vw;
+    }
 }
+
+@media screen and (orientation: landscape) and (max-height: 325px) {
+    .iconHolder{
+        padding: 2px;
+    }
+
+    .setIconButton {
+        width: 30vw;
+    }
+
+    .iconTitle{
+       display: none;
+    }
 }
