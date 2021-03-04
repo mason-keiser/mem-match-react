@@ -7,6 +7,22 @@ const Login = (props) => {
     const [password, setPassword] = useState('')
 
     const handleSubmit = (callback) => {
+        const use = document.getElementById('use');
+        const lock = document.getElementById('lo')
+        const req = document.getElementById('required')
+        if (!name) {
+            use.style.color = 'red'
+            req.style.color = 'red'
+            req.textContent ='* red fields are required for login *'
+        } if (!password) {
+            lock.style.color='red'
+            req.style.color = 'red'
+            req.textContent ='* red fields are required for login *'
+        } 
+        if (!name || !password) {
+            event.preventDefault()
+            return null
+        }
         event.preventDefault()
         const obj = {
             name: name,
@@ -37,11 +53,11 @@ const Login = (props) => {
                     <form onSubmit={() => handleSubmit(props.login)} className='loginForm'>
                     <h1>Login</h1>
                         <div className='form-group'>
-                            <label htmlFor="name">Name: </label>
+                            <label id='use' htmlFor="name">Name: </label>
                             <input type="text" autoComplete='name' placeholder='Name' name='name' className="" id='name' onChange={handleChange}/>
                         </div>
                         <div className='form-group'>
-                            <label htmlFor="password">Password: </label>
+                            <label id='lo' htmlFor="password">Password: </label>
                             <input type="password" placeholder='Password' autoComplete='password' name='password' className="" id='password' onChange={handleChange}/>
                         </div>
                         <div id="required" className="required"></div>

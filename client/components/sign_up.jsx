@@ -14,6 +14,27 @@ const SignUp = (props) => {
 
 
     const handleSubmit = (callback) => {
+        const n = document.getElementById('n');
+        const p = document.getElementById('p');
+        const i = document.getElementById('i');
+        const req = document.getElementById('require')
+        if (!name) {
+            n.style.color = 'red'
+            req.style.color = 'red'
+            req.textContent ='* red fields are required for sign up *'
+        } if (!password) {
+            p.style.color='red'
+            req.style.color = 'red'
+            req.textContent ='* red fields are required for sign up *'
+        } if (!icon) {
+            i.style.color='red'
+            req.style.color = 'red'
+            req.textContent ='* red fields are required for sign up *'
+        } 
+        if (!name || !password || !icon) {
+            event.preventDefault()
+            return null
+        }
         event.preventDefault()
         const obj = {
             name: name,
@@ -61,15 +82,15 @@ const SignUp = (props) => {
                 <form onSubmit={() => handleSubmit(props.signUp)} className='loginForm2'>
                     <h1>Sign Up!</h1>
                         <div className='form-group'>
-                            <label htmlFor="name">Name: </label>
+                            <label id='n' htmlFor="name">Name: </label>
                             <input type="text" autoComplete='name' placeholder='Name' name='name' className="" id='name' onChange={handleChange}/>
                         </div>
                         <div className='form-group'>
-                            <label htmlFor="password">Password: </label>
+                            <label id='p' htmlFor="password">Password: </label>
                             <input type="password" placeholder='Password' autoComplete='password' name='password' className="" id='password' onChange={handleChange}/>
                         </div>
                         <div className='form-group'>
-                            <label htmlFor="password">Player Icon: </label>
+                            <label id='i' htmlFor="password">Player Icon: </label>
                             <Container id='iconContainer' style={{width: '100%', padding: 0}} className='d-flex justify-content-center align-content-center align-items-center'>
                                 <Row>
                                     <Col xs="12">
@@ -104,7 +125,7 @@ const SignUp = (props) => {
                                 </Row>
                             </Container>
                         </div>
-                        <div id="required" className="required"></div>
+                        <div id="require" className="required"></div>
                         <div className='loginbutton2'>
                             <button type='submit' className=' btn mt-2 white' style={{color: 'white', fontSize: '2rem'}}>Sign Up</button>
                         </div>

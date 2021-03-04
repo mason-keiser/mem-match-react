@@ -23,6 +23,13 @@ const App = (props) => {
         })
             .then(response => {
                 if (response.status === 400 || response.status === 404) {
+                    const use = document.getElementById('use');
+                    const lock = document.getElementById('lo')
+                    const req = document.getElementById('required')
+                    use.style.color = 'red'
+                    lock.style.color = 'red'
+                    req.style.color = 'red'
+                    req.textContent ='* invalid name / password combo, try again *'
                     return null
                 } else {
                     return response.json();
